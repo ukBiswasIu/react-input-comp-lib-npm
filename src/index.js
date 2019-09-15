@@ -5,10 +5,6 @@ class InputBox extends React.Component {
         return e;
     }
 
-    helloMan(name) {
-        return "hey "+name;
-    }
-
   render() {
     return (
       <div>
@@ -23,4 +19,17 @@ class InputBox extends React.Component {
     );
   }
 }
-export {InputBox, helloMan};
+
+
+class HelloMan extends React.Component {
+
+
+  render() {
+    return (
+      <div>
+        Hello + {this.props.name}
+      </div>
+    );
+  }
+}
+export {InputBox, HelloMan};

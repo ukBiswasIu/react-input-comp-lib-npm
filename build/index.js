@@ -83,7 +83,7 @@ module.exports = require("react");
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.helloMan = exports.InputBox = undefined;
+exports.HelloMan = exports.InputBox = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -114,11 +114,6 @@ var InputBox = function (_React$Component) {
       return e;
     }
   }, {
-    key: "helloMan",
-    value: function helloMan(name) {
-      return "hey " + name;
-    }
-  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -146,8 +141,32 @@ var InputBox = function (_React$Component) {
   return InputBox;
 }(_react2.default.Component);
 
+var HelloMan = function (_React$Component2) {
+  _inherits(HelloMan, _React$Component2);
+
+  function HelloMan() {
+    _classCallCheck(this, HelloMan);
+
+    return _possibleConstructorReturn(this, (HelloMan.__proto__ || Object.getPrototypeOf(HelloMan)).apply(this, arguments));
+  }
+
+  _createClass(HelloMan, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "div",
+        null,
+        "Hello + ",
+        this.props.name
+      );
+    }
+  }]);
+
+  return HelloMan;
+}(_react2.default.Component);
+
 exports.InputBox = InputBox;
-exports.helloMan = helloMan;
+exports.HelloMan = HelloMan;
 
 /***/ })
 /******/ ]);
