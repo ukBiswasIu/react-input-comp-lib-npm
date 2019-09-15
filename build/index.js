@@ -108,6 +108,12 @@ var InputBox = function (_React$Component) {
   }
 
   _createClass(InputBox, [{
+    key: "handleOnChange",
+    value: function handleOnChange() {
+      console.log("e.target.value");
+      return e.target.value;
+    }
+  }, {
     key: "render",
     value: function render() {
       return _react2.default.createElement(
@@ -121,7 +127,8 @@ var InputBox = function (_React$Component) {
         _react2.default.createElement("input", {
           className: this.props.className,
           type: this.props.type || "text",
-          placeholder: this.props.placeholder
+          placeholder: this.props.placeholder,
+          onChange: this.handleOnChange
         })
       );
     }

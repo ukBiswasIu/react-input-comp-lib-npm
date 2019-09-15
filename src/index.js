@@ -1,6 +1,6 @@
 import React from "react";
 class InputBox extends React.Component {
-    handleOnChange=()=>{
+    handleOnChange(){
         console.log("e.target.value")
         return e.target.value;
       }
