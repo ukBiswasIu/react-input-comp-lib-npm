@@ -109,7 +109,7 @@ var InputBox = function (_React$Component) {
 
   _createClass(InputBox, [{
     key: "handleOnChange",
-    value: function handleOnChange() {
+    value: function handleOnChange(e) {
       console.log("e.target.value");
       return e.target.value;
     }
