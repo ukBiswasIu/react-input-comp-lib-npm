@@ -228,7 +228,7 @@ var InputButton = function (_React$Component) {
         _react2.default.createElement(
           "button",
           { type: "button" },
-          this.props.value || "Button"
+          "Button"
         )
       );
     }
@@ -269,11 +269,6 @@ var _InputBox2 = _interopRequireDefault(_InputBox);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// class HelloMan extends React.Component {
-//   render() {
-//     return <div>Hello {this.props.name}</div>;
-//   }
-// }
 exports.InputBox = _InputBox2.default;
 exports.HelloMan = _HelloMan2.default;
 exports.InputButton = _InputButton2.default;

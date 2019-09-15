@@ -4,7 +4,7 @@ class InputButton extends React.Component {
   render() {
     return (
       <div>
-        <button type="button">{this.props.value || "Button"}</button>
+        <button type="button">Button</button>
       </div>
     );
   }
@@ -12,4 +12,4 @@ class InputButton extends React.Component {
 
 // onClick={this.props.onClick}
 // className={this.props.className}
-export default InputButton
+export default InputButton;

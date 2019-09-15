@@ -17,4 +17,5 @@ class InputBox extends React.Component {
       );
     }
   }
-  export default InputBox
+
+  export default InputBox;
