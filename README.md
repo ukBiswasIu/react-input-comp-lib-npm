@@ -8,3 +8,7 @@
 
 ## For Uses
  ### npm i react-input-comp-lib-npm
+
+ ##InputBox
+ ## Accept props
+ type, label, placeholder, className
