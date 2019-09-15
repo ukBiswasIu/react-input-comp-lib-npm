@@ -131,7 +131,7 @@ var InputBox = function (_React$Component) {
           type: this.props.type || "text",
           placeholder: this.props.placeholder,
           onChange: function onChange(e) {
-            return _this2.handleOnChange(e);
+            return _this2.handleOnChange;
           }
         })
       );
