@@ -98,7 +98,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-//import "./App.css"
 var Fancy = function (_React$Component) {
   _inherits(Fancy, _React$Component);
 
@@ -119,7 +118,11 @@ var Fancy = function (_React$Component) {
           null,
           this.props.label
         ),
-        _react2.default.createElement("input", { className: "small-margin", type: "text", placeholder: "h@h.com" })
+        _react2.default.createElement("input", {
+          className: "small-margin",
+          type: this.props.type || "text",
+          placeholder: this.props.placeholder
+        })
       );
     }
   }]);
