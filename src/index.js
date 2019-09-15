@@ -9,7 +9,7 @@ class InputBox extends React.Component {
           className={this.props.className}
           type={this.props.type || "text"}
           placeholder={this.props.placeholder}
-          handleOnChange={this.props.handleOnChange}
+          onChange={this.props.onChange}
         />
       </div>
     );
