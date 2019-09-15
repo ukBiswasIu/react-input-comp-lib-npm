@@ -2,8 +2,12 @@ import React from "react";
 class InputBox extends React.Component {
 
     handleOnChange(e){
-        return e.target.value;
-      }
+        return e;
+    }
+
+    helloMan(name) {
+        return "hey "+name;
+    }
 
   render() {
     return (
@@ -13,10 +17,10 @@ class InputBox extends React.Component {
           className={this.props.className}
           type={this.props.type || "text"}
           placeholder={this.props.placeholder}
-          onChange={e=>this.handleOnChange}
+          onChange={e=>this.handleOnChange(e)}
         />
       </div>
     );
   }
 }
-export default InputBox;
+export {InputBox, helloMan};
