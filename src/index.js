@@ -1,5 +1,6 @@
 import React from "react";
 class InputBox extends React.Component {
+
     handleOnChange(e){
         return e.target.value;
       }
@@ -12,7 +13,7 @@ class InputBox extends React.Component {
           className={this.props.className}
           type={this.props.type || "text"}
           placeholder={this.props.placeholder}
-          onChange={this.handleOnChange}
+          onChange={e=>this.handleOnChange}
         />
       </div>
     );
