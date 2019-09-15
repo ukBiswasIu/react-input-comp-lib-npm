@@ -110,10 +110,10 @@ var HelloMan = function (_React$Component) {
   _createClass(HelloMan, [{
     key: "render",
     value: function render() {
+      // return <div>Hello {this.props.name}</div>;
       return _react2.default.createElement(
-        "div",
-        null,
-        "Hello ",
+        "button",
+        { type: "button" },
         this.props.name
       );
     }
