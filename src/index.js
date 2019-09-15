@@ -1,5 +1,5 @@
 import React from 'react';
-import "./App.css"
+//import "./App.css"
 class Fancy extends React.Component {
   render() {
     return (
