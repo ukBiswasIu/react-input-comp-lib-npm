@@ -115,7 +115,7 @@ var InputBox = function (_React$Component) {
         null,
         _react2.default.createElement(
           "span",
-          null,
+          { style: "font-size: " + this.props.label - font - size + ";" },
           this.props.label + ": " || ""
         ),
         _react2.default.createElement("input", {
