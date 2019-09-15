@@ -123,7 +123,8 @@ var InputBox = function (_React$Component) {
           className: this.props.className,
           type: this.props.type || "text",
           placeholder: this.props.placeholder,
-          onChange: this.props.onChange
+          onChange: this.props.onChange,
+          value: this.props.value
         })
       );
     }
