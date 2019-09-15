@@ -4,9 +4,7 @@ class InputButton extends React.Component {
   render() {
     return (
       <div>
-        <button
-          value={this.props.value || "Button"}
-        />
+        <button type="button">{this.props.value || "Button"}</button>
       </div>
     );
   }

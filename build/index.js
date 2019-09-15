@@ -225,9 +225,11 @@ var InputButton = function (_React$Component) {
       return _react2.default.createElement(
         "div",
         null,
-        _react2.default.createElement("button", {
-          value: this.props.value || "Button"
-        })
+        _react2.default.createElement(
+          "button",
+          { type: "button" },
+          this.props.value || "Button"
+        )
       );
     }
   }]);
