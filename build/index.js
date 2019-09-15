@@ -110,12 +110,13 @@ var HelloMan = function (_React$Component) {
   _createClass(HelloMan, [{
     key: "render",
     value: function render() {
-      // return <div>Hello {this.props.name}</div>;
       return _react2.default.createElement(
-        "button",
-        { type: "button" },
+        "div",
+        null,
+        "Hello ",
         this.props.name
       );
+      // return <button type="button">{this.props.name}</button>;
     }
   }]);
 
@@ -227,8 +228,12 @@ var InputButton = function (_React$Component) {
         null,
         _react2.default.createElement(
           "button",
-          { type: "button" },
-          "Button"
+          {
+            onClick: this.props.onClick,
+            className: this.props.className,
+            type: "button"
+          },
+          this.props.value || "Button"
         )
       );
     }
@@ -236,10 +241,6 @@ var InputButton = function (_React$Component) {
 
   return InputButton;
 }(_react2.default.Component);
-
-// onClick={this.props.onClick}
-// className={this.props.className}
-
 
 exports.default = InputButton;
 
