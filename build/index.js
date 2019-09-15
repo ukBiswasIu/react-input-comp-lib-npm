@@ -114,11 +114,12 @@ var Fancy = function (_React$Component) {
       return _react2.default.createElement(
         "div",
         null,
-        _react2.default.createElement("input", {
-          className: "small-margin",
-          type: "text",
-          placeholder: "h@h.com"
-        })
+        _react2.default.createElement(
+          "span",
+          null,
+          this.props.label
+        ),
+        _react2.default.createElement("input", { className: "small-margin", type: "text", placeholder: "h@h.com" })
       );
     }
   }]);
