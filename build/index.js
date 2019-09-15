@@ -108,12 +108,12 @@ var Fancy = function (_React$Component) {
   }
 
   _createClass(Fancy, [{
-    key: 'render',
+    key: "render",
     value: function render() {
       return _react2.default.createElement(
-        'div',
+        "div",
         null,
-        'This is so Fancy!'
+        _react2.default.createElement("input", { type: "text", placeholder: "hello@hello.com" })
       );
     }
   }]);
