@@ -1,11 +1,11 @@
 import React from "react";
-class Fancy extends React.Component {
+class InputBox extends React.Component {
   render() {
     return (
       <div>
-        <span>{this.props.label}</span>
+        <span>{this.props.label + ": " || ""}</span>
         <input
-          className="small-margin"
+          className={this.props.className}
           type={this.props.type || "text"}
           placeholder={this.props.placeholder}
         />
@@ -13,4 +13,4 @@ class Fancy extends React.Component {
     );
   }
 }
-export default Fancy;
+export default InputBox;

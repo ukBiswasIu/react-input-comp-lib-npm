@@ -98,16 +98,16 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Fancy = function (_React$Component) {
-  _inherits(Fancy, _React$Component);
+var InputBox = function (_React$Component) {
+  _inherits(InputBox, _React$Component);
 
-  function Fancy() {
-    _classCallCheck(this, Fancy);
+  function InputBox() {
+    _classCallCheck(this, InputBox);
 
-    return _possibleConstructorReturn(this, (Fancy.__proto__ || Object.getPrototypeOf(Fancy)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (InputBox.__proto__ || Object.getPrototypeOf(InputBox)).apply(this, arguments));
   }
 
-  _createClass(Fancy, [{
+  _createClass(InputBox, [{
     key: "render",
     value: function render() {
       return _react2.default.createElement(
@@ -116,10 +116,10 @@ var Fancy = function (_React$Component) {
         _react2.default.createElement(
           "span",
           null,
-          this.props.label
+          this.props.label + ": " || ""
         ),
         _react2.default.createElement("input", {
-          className: "small-margin",
+          className: this.props.className,
           type: this.props.type || "text",
           placeholder: this.props.placeholder
         })
@@ -127,10 +127,10 @@ var Fancy = function (_React$Component) {
     }
   }]);
 
-  return Fancy;
+  return InputBox;
 }(_react2.default.Component);
 
-exports.default = Fancy;
+exports.default = InputBox;
 
 /***/ })
 /******/ ]);
