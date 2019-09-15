@@ -111,6 +111,7 @@ var InputBox = function (_React$Component) {
   _createClass(InputBox, [{
     key: "handleOnChange",
     value: function handleOnChange(e) {
+      console.log(e);
       return e;
     }
   }, {
@@ -156,7 +157,7 @@ var HelloMan = function (_React$Component2) {
       return _react2.default.createElement(
         "div",
         null,
-        "Hello + ",
+        "Hello ",
         this.props.name
       );
     }
