@@ -1,9 +1,5 @@
 import React from "react";
 class InputBox extends React.Component {
-  handleOnChange(e) {
-    console.log(e);
-    return e;
-  }
 
   render() {
     return (
@@ -13,7 +9,7 @@ class InputBox extends React.Component {
           className={this.props.className}
           type={this.props.type || "text"}
           placeholder={this.props.placeholder}
-          onChange={e => this.handleOnChange}
+          handleOnChange={this.props.handleOnChange}
         />
       </div>
     );
