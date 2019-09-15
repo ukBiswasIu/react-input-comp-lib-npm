@@ -226,9 +226,7 @@ var InputButton = function (_React$Component) {
         "div",
         null,
         _react2.default.createElement("input", {
-          className: this.props.className,
           type: "button",
-          onClick: this.props.onClick,
           value: this.props.value || "Button"
         })
       );
@@ -238,11 +236,8 @@ var InputButton = function (_React$Component) {
   return InputButton;
 }(_react2.default.Component);
 
-// class HelloMan extends React.Component {
-//   render() {
-//     return <div>Hello {this.props.name}</div>;
-//   }
-// }
+// onClick={this.props.onClick}
+// className={this.props.className}
 
 
 exports.default = InputButton;

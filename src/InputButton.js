@@ -5,9 +5,7 @@ class InputButton extends React.Component {
     return (
       <div>
         <input
-          className={this.props.className}
           type="button"
-          onClick={this.props.onClick}
           value={this.props.value || "Button"}
         />
       </div>
@@ -15,9 +13,6 @@ class InputButton extends React.Component {
   }
 }
 
-// class HelloMan extends React.Component {
-//   render() {
-//     return <div>Hello {this.props.name}</div>;
-//   }
-// }
+// onClick={this.props.onClick}
+// className={this.props.className}
 export default InputButton
