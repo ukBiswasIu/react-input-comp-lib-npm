@@ -3444,21 +3444,21 @@ var Drawer = function (_Component) {
         { className: "drawer-wrapper" },
         _react2.default.createElement(
           "header",
-          { "class": "mdc-top-app-bar app-bar", id: "app-bar" },
+          { className: "mdc-top-app-bar app-bar", id: "app-bar" },
           _react2.default.createElement(
             "div",
-            { "class": "mdc-top-app-bar__row" },
+            { className: "mdc-top-app-bar__row" },
             _react2.default.createElement(
               "section",
-              { "class": "mdc-top-app-bar__section mdc-top-app-bar__section--align-start" },
+              { className: "mdc-top-app-bar__section mdc-top-app-bar__section--align-start" },
               _react2.default.createElement(
                 "a",
-                { href: "#", "class": "demo-menu material-icons mdc-top-app-bar__navigation-icon" },
+                { href: "#", className: "demo-menu material-icons mdc-top-app-bar__navigation-icon" },
                 "menu"
               ),
               _react2.default.createElement(
                 "span",
-                { "class": "mdc-top-app-bar__title" },
+                { className: "mdc-top-app-bar__title" },
                 "Dismissible Drawer"
               )
             )
@@ -3466,80 +3466,80 @@ var Drawer = function (_Component) {
         ),
         _react2.default.createElement(
           "aside",
-          { "class": "mdc-drawer mdc-drawer--dismissible mdc-top-app-bar--fixed-adjust" },
+          { className: "mdc-drawer mdc-drawer--dismissible mdc-top-app-bar--fixed-adjust" },
           _react2.default.createElement(
             "div",
-            { "class": "mdc-drawer__content" },
+            { className: "mdc-drawer__content" },
             _react2.default.createElement(
               "div",
-              { "class": "mdc-list" },
+              { className: "mdc-list" },
               _react2.default.createElement(
                 "a",
-                { "class": "mdc-list-item mdc-list-item--activated", href: "#", "aria-current": "page" },
+                { className: "mdc-list-item mdc-list-item--activated", href: "#", "aria-current": "page" },
                 _react2.default.createElement(
                   "i",
-                  { "class": "material-icons mdc-list-item__graphic", "aria-hidden": "true" },
+                  { className: "material-icons mdc-list-item__graphic", "aria-hidden": "true" },
                   "dashboard"
                 ),
                 _react2.default.createElement(
                   "span",
-                  { "class": "mdc-list-item__text" },
+                  { className: "mdc-list-item__text" },
                   "Dashboard"
                 )
               ),
               _react2.default.createElement(
                 "a",
-                { "class": "mdc-list-item", href: "#" },
+                { className: "mdc-list-item", href: "#" },
                 _react2.default.createElement(
                   "i",
-                  { "class": "material-icons mdc-list-item__graphic", "aria-hidden": "true" },
+                  { className: "material-icons mdc-list-item__graphic", "aria-hidden": "true" },
                   "videocam"
                 ),
                 _react2.default.createElement(
                   "span",
-                  { "class": "mdc-list-item__text" },
+                  { className: "mdc-list-item__text" },
                   "LiveStream"
                 )
               ),
               _react2.default.createElement(
                 "a",
-                { "class": "mdc-list-item", href: "#" },
+                { className: "mdc-list-item", href: "#" },
                 _react2.default.createElement(
                   "i",
-                  { "class": "material-icons mdc-list-item__graphic", "aria-hidden": "true" },
+                  { className: "material-icons mdc-list-item__graphic", "aria-hidden": "true" },
                   "drafts"
                 ),
                 _react2.default.createElement(
                   "span",
-                  { "class": "mdc-list-item__text" },
+                  { className: "mdc-list-item__text" },
                   "Downstreams"
                 )
               ),
               _react2.default.createElement(
                 "a",
-                { "class": "mdc-list-item", href: "#" },
+                { className: "mdc-list-item", href: "#" },
                 _react2.default.createElement(
                   "i",
-                  { "class": "material-icons mdc-list-item__graphic", "aria-hidden": "true" },
+                  { className: "material-icons mdc-list-item__graphic", "aria-hidden": "true" },
                   "drafts"
                 ),
                 _react2.default.createElement(
                   "span",
-                  { "class": "mdc-list-item__text" },
+                  { className: "mdc-list-item__text" },
                   "Upstream"
                 )
               ),
               _react2.default.createElement(
                 "a",
-                { "class": "mdc-list-item", href: "#" },
+                { className: "mdc-list-item", href: "#" },
                 _react2.default.createElement(
                   "i",
-                  { "class": "material-icons mdc-list-item__graphic", "aria-hidden": "true" },
+                  { className: "material-icons mdc-list-item__graphic", "aria-hidden": "true" },
                   "drafts"
                 ),
                 _react2.default.createElement(
                   "span",
-                  { "class": "mdc-list-item__text" },
+                  { className: "mdc-list-item__text" },
                   "Devices"
                 )
               )
@@ -3548,10 +3548,10 @@ var Drawer = function (_Component) {
         ),
         _react2.default.createElement(
           "div",
-          { "class": "mdc-drawer-app-content mdc-top-app-bar--fixed-adjust" },
+          { className: "mdc-drawer-app-content mdc-top-app-bar--fixed-adjust" },
           _react2.default.createElement(
             "main",
-            { "class": "main-content", id: "main-content" },
+            { className: "main-content", id: "main-content" },
             "App Content"
           )
         )
