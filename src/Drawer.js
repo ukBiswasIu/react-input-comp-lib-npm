@@ -27,43 +27,43 @@ class Drawer extends Component {
   render() {
     return (
       <div className="drawer-wrapper">
-        <header class="mdc-top-app-bar app-bar" id="app-bar">
-          <div class="mdc-top-app-bar__row">
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-              <a href="#" class="demo-menu material-icons mdc-top-app-bar__navigation-icon">menu</a>
-              <span class="mdc-top-app-bar__title">Dismissible Drawer</span>
+        <header className="mdc-top-app-bar app-bar" id="app-bar">
+          <div className="mdc-top-app-bar__row">
+            <section className="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+              <a href="#" className="demo-menu material-icons mdc-top-app-bar__navigation-icon">menu</a>
+              <span className="mdc-top-app-bar__title">Dismissible Drawer</span>
             </section>
           </div>
         </header>
-        <aside class="mdc-drawer mdc-drawer--dismissible mdc-top-app-bar--fixed-adjust">
-          <div class="mdc-drawer__content">
-            <div class="mdc-list">
-              <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page">
-                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">dashboard</i>
-                <span class="mdc-list-item__text">Dashboard</span>
+        <aside className="mdc-drawer mdc-drawer--dismissible mdc-top-app-bar--fixed-adjust">
+          <div className="mdc-drawer__content">
+            <div className="mdc-list">
+              <a className="mdc-list-item mdc-list-item--activated" href="#" aria-current="page">
+                <i className="material-icons mdc-list-item__graphic" aria-hidden="true">dashboard</i>
+                <span className="mdc-list-item__text">Dashboard</span>
               </a>
-              <a class="mdc-list-item" href="#">
-                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">videocam</i>
-                <span class="mdc-list-item__text">LiveStream</span>
+              <a className="mdc-list-item" href="#">
+                <i className="material-icons mdc-list-item__graphic" aria-hidden="true">videocam</i>
+                <span className="mdc-list-item__text">LiveStream</span>
               </a>
-              <a class="mdc-list-item" href="#">
-                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
-                <span class="mdc-list-item__text">Downstreams</span>
+              <a className="mdc-list-item" href="#">
+                <i className="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
+                <span className="mdc-list-item__text">Downstreams</span>
               </a>
-              <a class="mdc-list-item" href="#">
-                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
-                <span class="mdc-list-item__text">Upstream</span>
+              <a className="mdc-list-item" href="#">
+                <i className="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
+                <span className="mdc-list-item__text">Upstream</span>
               </a>
-              <a class="mdc-list-item" href="#">
-                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
-                <span class="mdc-list-item__text">Devices</span>
+              <a className="mdc-list-item" href="#">
+                <i className="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
+                <span className="mdc-list-item__text">Devices</span>
               </a>
             </div>
           </div>
         </aside>
 
-        <div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
-          <main class="main-content" id="main-content">
+        <div className="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
+          <main className="main-content" id="main-content">
             App Content
           </main>
         </div>

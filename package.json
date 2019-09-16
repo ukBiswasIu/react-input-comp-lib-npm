@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "material-components-web": "^3.2.0",
-    "react": "^15.5.4"
+    "react": "^15.5.4",
+    "scss-loader": "0.0.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

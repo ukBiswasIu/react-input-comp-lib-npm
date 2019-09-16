@@ -1,4 +1,6 @@
 
+@import "./color.scss";
+
 .login-div-main {
     align-content: center;
     width: 500px;
