@@ -12,3 +12,9 @@
  ##InputBox
  ## Accept props
  type, label, placeholder, className
+
+ ## including css or style
+ you need stye-loder, css-loader, sass-loder
+ ### npm install --save-dev css-loader
+ ### npm install --save-dev style-loader
+ ### npm install sass-loader node-sass webpack --save-dev
