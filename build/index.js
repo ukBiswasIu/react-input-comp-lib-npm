@@ -64,7 +64,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -254,7 +254,88 @@ exports.default = InputButton;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.InputButton = exports.HelloMan = exports.InputBox = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Login = function (_React$Component) {
+  _inherits(Login, _React$Component);
+
+  function Login() {
+    _classCallCheck(this, Login);
+
+    return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).apply(this, arguments));
+  }
+
+  _createClass(Login, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "div",
+        null,
+        _react2.default.createElement(
+          "h1",
+          null,
+          this.props.heading || "Log In"
+        ),
+        _react2.default.createElement("br", null),
+        _react2.default.createElement("br", null),
+        _react2.default.createElement(
+          "span",
+          null,
+          this.props.userNameLabel + " : " || "Username : "
+        ),
+        _react2.default.createElement("input", {
+          className: this.props.className,
+          type: "text",
+          placeholder: this.props.userNamePlaceholder,
+          onChange: this.props.onChange,
+          value: this.props.userNameValue
+        }),
+        _react2.default.createElement("br", null),
+        _react2.default.createElement(
+          "span",
+          null,
+          this.props.passwordLabel + " : " || "Password : "
+        ),
+        _react2.default.createElement("input", {
+          className: this.props.className,
+          type: "password",
+          placeholder: this.props.passwordPlaceholder,
+          onChange: this.props.onChange,
+          value: this.props.passwordValue
+        })
+      );
+    }
+  }]);
+
+  return Login;
+}(_react2.default.Component);
+
+exports.default = Login;
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Login = exports.InputButton = exports.HelloMan = exports.InputBox = undefined;
 
 var _HelloMan = __webpack_require__(1);
 
@@ -268,11 +349,16 @@ var _InputBox = __webpack_require__(2);
 
 var _InputBox2 = _interopRequireDefault(_InputBox);
 
+var _login = __webpack_require__(4);
+
+var _login2 = _interopRequireDefault(_login);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.InputBox = _InputBox2.default;
 exports.HelloMan = _HelloMan2.default;
 exports.InputButton = _InputButton2.default;
+exports.Login = _login2.default;
 
 /***/ })
 /******/ ]);
