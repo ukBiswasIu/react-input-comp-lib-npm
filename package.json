@@ -20,6 +20,19 @@
     "name": "uttam-iu-npm",
     "email": "ukumariucse@gmail.com"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ukBiswasIu/react-input-comp-lib-npm.git"
+  },
+  "keywords": [
+    "test package",
+    "react-input-comp-lib-npm"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ukBiswasIu/react-input-comp-lib-npm/issues"
+  },
+  "homepage": "https://github.com/ukBiswasIu/react-input-comp-lib-npm#readme",
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
@@ -29,7 +42,7 @@
     "babel-preset-env": "^1.5.1",
     "css-loader": "^3.2.0",
     "node-sass": "^4.12.0",
-    "sass-loader": "^8.0.0",
+    "sass-loader": "^7.3.0",
     "style-loader": "^1.0.0",
     "webpack": "^2.7.0"
   }
