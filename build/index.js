@@ -64,7 +64,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 35);
+/******/ 	return __webpack_require__(__webpack_require__.s = 36);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -549,7 +549,7 @@ var MDCComponent = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MDCDismissibleDrawerFoundation; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__material_base_foundation__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__constants__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__constants__ = __webpack_require__(13);
 /**
  * @license
  * Copyright 2018 Google Inc.
@@ -1631,6 +1631,102 @@ var MDCTopAppBarFoundation = /** @class */ (function (_super) {
 
 /***/ }),
 /* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+// eslint-disable-next-line func-names
+module.exports = function (useSourceMap) {
+  var list = []; // return the list of modules as css string
+
+  list.toString = function toString() {
+    return this.map(function (item) {
+      var content = cssWithMappingToString(item, useSourceMap);
+
+      if (item[2]) {
+        return "@media ".concat(item[2], "{").concat(content, "}");
+      }
+
+      return content;
+    }).join('');
+  }; // import a list of modules into the list
+  // eslint-disable-next-line func-names
+
+
+  list.i = function (modules, mediaQuery) {
+    if (typeof modules === 'string') {
+      // eslint-disable-next-line no-param-reassign
+      modules = [[null, modules, '']];
+    }
+
+    var alreadyImportedModules = {};
+
+    for (var i = 0; i < this.length; i++) {
+      // eslint-disable-next-line prefer-destructuring
+      var id = this[i][0];
+
+      if (id != null) {
+        alreadyImportedModules[id] = true;
+      }
+    }
+
+    for (var _i = 0; _i < modules.length; _i++) {
+      var item = modules[_i]; // skip already imported module
+      // this implementation is not 100% perfect for weird media query combinations
+      // when a module is imported multiple times with different media queries.
+      // I hope this will never occur (Hey this way we have smaller bundles)
+
+      if (item[0] == null || !alreadyImportedModules[item[0]]) {
+        if (mediaQuery && !item[2]) {
+          item[2] = mediaQuery;
+        } else if (mediaQuery) {
+          item[2] = "(".concat(item[2], ") and (").concat(mediaQuery, ")");
+        }
+
+        list.push(item);
+      }
+    }
+  };
+
+  return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+  var content = item[1] || ''; // eslint-disable-next-line prefer-destructuring
+
+  var cssMapping = item[3];
+
+  if (!cssMapping) {
+    return content;
+  }
+
+  if (useSourceMap && typeof btoa === 'function') {
+    var sourceMapping = toComment(cssMapping);
+    var sourceURLs = cssMapping.sources.map(function (source) {
+      return "/*# sourceURL=".concat(cssMapping.sourceRoot).concat(source, " */");
+    });
+    return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+  }
+
+  return [content].join('\n');
+} // Adapted from convert-source-map (MIT)
+
+
+function toComment(sourceMap) {
+  // eslint-disable-next-line no-undef
+  var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+  var data = "sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(base64);
+  return "/*# ".concat(data, " */");
+}
+
+/***/ }),
+/* 12 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1684,7 +1780,7 @@ function matches(element, selector) {
 //# sourceMappingURL=ponyfill.js.map
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1731,7 +1827,7 @@ var strings = {
 //# sourceMappingURL=constants.js.map
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1794,7 +1890,7 @@ var MDCModalDrawerFoundation = /** @class */ (function (_super) {
 //# sourceMappingURL=foundation.js.map
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1837,14 +1933,14 @@ function createFocusTrapInstance(surfaceEl, focusTrapFactory) {
 //# sourceMappingURL=util.js.map
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MDCList; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__material_base_component__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_dom_ponyfill__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_dom_ponyfill__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__constants__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__foundation__ = __webpack_require__(7);
 /**
@@ -2103,16 +2199,16 @@ var MDCList = /** @class */ (function (_super) {
 //# sourceMappingURL=component.js.map
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MDCRipple; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__material_base_component__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_dom_events__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__material_dom_ponyfill__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__foundation__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_dom_events__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__material_dom_ponyfill__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__foundation__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__util__ = __webpack_require__(8);
 /**
  * @license
@@ -2228,7 +2324,7 @@ var MDCRipple = /** @class */ (function (_super) {
 //# sourceMappingURL=component.js.map
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2285,14 +2381,14 @@ var numbers = {
 //# sourceMappingURL=constants.js.map
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MDCRippleFoundation; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__material_base_foundation__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__constants__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__constants__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util__ = __webpack_require__(8);
 /**
  * @license
@@ -2757,7 +2853,7 @@ var MDCRippleFoundation = /** @class */ (function (_super) {
 //# sourceMappingURL=foundation.js.map
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2827,7 +2923,7 @@ var MDCFixedTopAppBarFoundation = /** @class */ (function (_super) {
 //# sourceMappingURL=foundation.js.map
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2942,107 +3038,11 @@ var MDCShortTopAppBarFoundation = /** @class */ (function (_super) {
 //# sourceMappingURL=foundation.js.map
 
 /***/ }),
-/* 21 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/*
-  MIT License http://www.opensource.org/licenses/mit-license.php
-  Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-// eslint-disable-next-line func-names
-module.exports = function (useSourceMap) {
-  var list = []; // return the list of modules as css string
-
-  list.toString = function toString() {
-    return this.map(function (item) {
-      var content = cssWithMappingToString(item, useSourceMap);
-
-      if (item[2]) {
-        return "@media ".concat(item[2], "{").concat(content, "}");
-      }
-
-      return content;
-    }).join('');
-  }; // import a list of modules into the list
-  // eslint-disable-next-line func-names
-
-
-  list.i = function (modules, mediaQuery) {
-    if (typeof modules === 'string') {
-      // eslint-disable-next-line no-param-reassign
-      modules = [[null, modules, '']];
-    }
-
-    var alreadyImportedModules = {};
-
-    for (var i = 0; i < this.length; i++) {
-      // eslint-disable-next-line prefer-destructuring
-      var id = this[i][0];
-
-      if (id != null) {
-        alreadyImportedModules[id] = true;
-      }
-    }
-
-    for (var _i = 0; _i < modules.length; _i++) {
-      var item = modules[_i]; // skip already imported module
-      // this implementation is not 100% perfect for weird media query combinations
-      // when a module is imported multiple times with different media queries.
-      // I hope this will never occur (Hey this way we have smaller bundles)
-
-      if (item[0] == null || !alreadyImportedModules[item[0]]) {
-        if (mediaQuery && !item[2]) {
-          item[2] = mediaQuery;
-        } else if (mediaQuery) {
-          item[2] = "(".concat(item[2], ") and (").concat(mediaQuery, ")");
-        }
-
-        list.push(item);
-      }
-    }
-  };
-
-  return list;
-};
-
-function cssWithMappingToString(item, useSourceMap) {
-  var content = item[1] || ''; // eslint-disable-next-line prefer-destructuring
-
-  var cssMapping = item[3];
-
-  if (!cssMapping) {
-    return content;
-  }
-
-  if (useSourceMap && typeof btoa === 'function') {
-    var sourceMapping = toComment(cssMapping);
-    var sourceURLs = cssMapping.sources.map(function (source) {
-      return "/*# sourceURL=".concat(cssMapping.sourceRoot).concat(source, " */");
-    });
-    return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-  }
-
-  return [content].join('\n');
-} // Adapted from convert-source-map (MIT)
-
-
-function toComment(sourceMap) {
-  // eslint-disable-next-line no-undef
-  var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-  var data = "sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(base64);
-  return "/*# ".concat(data, " */");
-}
-
-/***/ }),
 /* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var tabbable = __webpack_require__(40);
-var xtend = __webpack_require__(41);
+var tabbable = __webpack_require__(42);
+var xtend = __webpack_require__(43);
 
 var activeFocusDelay;
 
@@ -3383,1121 +3383,6 @@ module.exports = focusTrap;
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _drawer = __webpack_require__(30);
-
-var _topAppBar = __webpack_require__(34);
-
-var _ripple = __webpack_require__(32);
-
-var _list = __webpack_require__(31);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-// import drawer, top-app-bar
-
-
-var Drawer = function (_Component) {
-  _inherits(Drawer, _Component);
-
-  function Drawer() {
-    _classCallCheck(this, Drawer);
-
-    return _possibleConstructorReturn(this, (Drawer.__proto__ || Object.getPrototypeOf(Drawer)).apply(this, arguments));
-  }
-
-  _createClass(Drawer, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var drawer = _drawer.MDCDrawer.attachTo(document.querySelector(".mdc-drawer"));
-      var topAppBar = _topAppBar.MDCTopAppBar.attachTo(document.getElementById("app-bar"));
-      topAppBar.setScrollTarget(document.getElementById("main-content"));
-      topAppBar.listen("MDCTopAppBar:nav", function () {
-        drawer.open = !drawer.open;
-      });
-
-      var list = new _list.MDCList(document.querySelector(".mdc-list"));
-      var listItemRipples = list.listElements.map(function (listItemEl) {
-        return new _ripple.MDCRipple(listItemEl);
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return _react2.default.createElement(
-        "div",
-        { className: "drawer-wrapper" },
-        _react2.default.createElement(
-          "header",
-          { className: "mdc-top-app-bar app-bar", id: "app-bar" },
-          _react2.default.createElement(
-            "div",
-            { className: "mdc-top-app-bar__row" },
-            _react2.default.createElement(
-              "section",
-              { className: "mdc-top-app-bar__section mdc-top-app-bar__section--align-start" },
-              _react2.default.createElement(
-                "a",
-                { href: "#", className: "demo-menu material-icons mdc-top-app-bar__navigation-icon" },
-                "menu"
-              ),
-              _react2.default.createElement(
-                "span",
-                { className: "mdc-top-app-bar__title" },
-                "Dismissible Drawer"
-              )
-            )
-          )
-        ),
-        _react2.default.createElement(
-          "aside",
-          { className: "mdc-drawer mdc-drawer--dismissible mdc-top-app-bar--fixed-adjust" },
-          _react2.default.createElement(
-            "div",
-            { className: "mdc-drawer__content" },
-            _react2.default.createElement(
-              "div",
-              { className: "mdc-list" },
-              _react2.default.createElement(
-                "a",
-                { className: "mdc-list-item mdc-list-item--activated", href: "#", "aria-current": "page" },
-                _react2.default.createElement(
-                  "i",
-                  { className: "material-icons mdc-list-item__graphic", "aria-hidden": "true" },
-                  "dashboard"
-                ),
-                _react2.default.createElement(
-                  "span",
-                  { className: "mdc-list-item__text" },
-                  "Dashboard"
-                )
-              ),
-              _react2.default.createElement(
-                "a",
-                { className: "mdc-list-item", href: "#" },
-                _react2.default.createElement(
-                  "i",
-                  { className: "material-icons mdc-list-item__graphic", "aria-hidden": "true" },
-                  "videocam"
-                ),
-                _react2.default.createElement(
-                  "span",
-                  { className: "mdc-list-item__text" },
-                  "LiveStream"
-                )
-              ),
-              _react2.default.createElement(
-                "a",
-                { className: "mdc-list-item", href: "#" },
-                _react2.default.createElement(
-                  "i",
-                  { className: "material-icons mdc-list-item__graphic", "aria-hidden": "true" },
-                  "drafts"
-                ),
-                _react2.default.createElement(
-                  "span",
-                  { className: "mdc-list-item__text" },
-                  "Downstreams"
-                )
-              ),
-              _react2.default.createElement(
-                "a",
-                { className: "mdc-list-item", href: "#" },
-                _react2.default.createElement(
-                  "i",
-                  { className: "material-icons mdc-list-item__graphic", "aria-hidden": "true" },
-                  "drafts"
-                ),
-                _react2.default.createElement(
-                  "span",
-                  { className: "mdc-list-item__text" },
-                  "Upstream"
-                )
-              ),
-              _react2.default.createElement(
-                "a",
-                { className: "mdc-list-item", href: "#" },
-                _react2.default.createElement(
-                  "i",
-                  { className: "material-icons mdc-list-item__graphic", "aria-hidden": "true" },
-                  "drafts"
-                ),
-                _react2.default.createElement(
-                  "span",
-                  { className: "mdc-list-item__text" },
-                  "Devices"
-                )
-              )
-            )
-          )
-        ),
-        _react2.default.createElement(
-          "div",
-          { className: "mdc-drawer-app-content mdc-top-app-bar--fixed-adjust" },
-          _react2.default.createElement(
-            "main",
-            { className: "main-content", id: "main-content" },
-            "App Content"
-          )
-        )
-      );
-    }
-  }]);
-
-  return Drawer;
-}(_react.Component);
-
-exports.default = Drawer;
-
-/***/ }),
-/* 24 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var HelloMan = function (_React$Component) {
-  _inherits(HelloMan, _React$Component);
-
-  function HelloMan() {
-    _classCallCheck(this, HelloMan);
-
-    return _possibleConstructorReturn(this, (HelloMan.__proto__ || Object.getPrototypeOf(HelloMan)).apply(this, arguments));
-  }
-
-  _createClass(HelloMan, [{
-    key: "render",
-    value: function render() {
-      return _react2.default.createElement(
-        "div",
-        null,
-        "Hello ",
-        this.props.name
-      );
-      // return <button type="button">{this.props.name}</button>;
-    }
-  }]);
-
-  return HelloMan;
-}(_react2.default.Component);
-
-exports.default = HelloMan;
-
-/***/ }),
-/* 25 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var InputBox = function (_React$Component) {
-  _inherits(InputBox, _React$Component);
-
-  function InputBox() {
-    _classCallCheck(this, InputBox);
-
-    return _possibleConstructorReturn(this, (InputBox.__proto__ || Object.getPrototypeOf(InputBox)).apply(this, arguments));
-  }
-
-  _createClass(InputBox, [{
-    key: "render",
-    value: function render() {
-      return _react2.default.createElement(
-        "div",
-        null,
-        _react2.default.createElement(
-          "span",
-          null,
-          this.props.label + ": " || ""
-        ),
-        _react2.default.createElement("input", {
-          className: this.props.className,
-          type: this.props.type || "text",
-          placeholder: this.props.placeholder,
-          onChange: this.props.onChange,
-          value: this.props.value
-        })
-      );
-    }
-  }]);
-
-  return InputBox;
-}(_react2.default.Component);
-
-exports.default = InputBox;
-
-/***/ }),
-/* 26 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var InputButton = function (_React$Component) {
-  _inherits(InputButton, _React$Component);
-
-  function InputButton() {
-    _classCallCheck(this, InputButton);
-
-    return _possibleConstructorReturn(this, (InputButton.__proto__ || Object.getPrototypeOf(InputButton)).apply(this, arguments));
-  }
-
-  _createClass(InputButton, [{
-    key: "render",
-    value: function render() {
-      return _react2.default.createElement(
-        "div",
-        null,
-        _react2.default.createElement(
-          "button",
-          {
-            onClick: this.props.onClick,
-            className: this.props.className,
-            type: "button"
-          },
-          this.props.value || "Button"
-        )
-      );
-    }
-  }]);
-
-  return InputButton;
-}(_react2.default.Component);
-
-exports.default = InputButton;
-
-/***/ }),
-/* 27 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(3);
-
-var _react2 = _interopRequireDefault(_react);
-
-__webpack_require__(38);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Login = function (_React$Component) {
-  _inherits(Login, _React$Component);
-
-  function Login() {
-    _classCallCheck(this, Login);
-
-    return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).apply(this, arguments));
-  }
-
-  _createClass(Login, [{
-    key: "render",
-    value: function render() {
-      return _react2.default.createElement(
-        "div",
-        { className: "login-div-main" },
-        _react2.default.createElement(
-          "div",
-          { className: "login-div-heading" },
-          this.props.heading || "Log In"
-        ),
-        _react2.default.createElement(
-          "div",
-          { className: "login-div-content" },
-          _react2.default.createElement(
-            "div",
-            { className: "login-div-content-label" },
-            _react2.default.createElement(
-              "div",
-              { className: "login-div-content-label-span" },
-              _react2.default.createElement(
-                "span",
-                null,
-                this.props.userNameLabel + " : " || "Username : "
-              ),
-              _react2.default.createElement("br", null),
-              _react2.default.createElement(
-                "span",
-                null,
-                this.props.passwordLabel + " : " || "Password : "
-              )
-            )
-          ),
-          _react2.default.createElement(
-            "div",
-            { className: "login-div-content-inputfield" },
-            _react2.default.createElement(
-              "div",
-              { className: "login-div-content-input-span" },
-              _react2.default.createElement("input", {
-                className: this.props.className,
-                type: "text",
-                placeholder: this.props.userNamePlaceholder || "username",
-                onChange: this.props.onChangeUserName,
-                value: this.props.userNameValue
-              }),
-              _react2.default.createElement("input", {
-                className: this.props.className,
-                type: "password",
-                placeholder: this.props.passwordPlaceholder || "password",
-                onChange: this.props.onChangePassword,
-                value: this.props.passwordValue
-              })
-            )
-          )
-        )
-      )
-
-      //   <div>
-      //     <h1>{this.props.heading || "Log In"}</h1>
-      //     <br />
-      //     <br />
-      //     <span>{this.props.userNameLabel + " : " || "Username : "}</span>
-      //     <input
-      //       className={this.props.className}
-      //       type="text"
-      //       placeholder={this.props.userNamePlaceholder}
-      //       onChange={this.props.onChangeUserName}
-      //       value={this.props.userNameValue}
-      //     />
-      //     <br />
-      //     <span>{this.props.passwordLabel + " : " || "Password : "}</span>
-      //     <input
-      //       className={this.props.className}
-      //       type="password"
-      //       placeholder={this.props.passwordPlaceholder}
-      //       onChange={this.props.onChangePassword}
-      //       value={this.props.passwordValue}
-      //     />
-      //   </div>
-      ;
-    }
-  }]);
-
-  return Login;
-}(_react2.default.Component);
-
-exports.default = Login;
-
-/***/ }),
-/* 28 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = applyPassive;
-/**
- * @license
- * Copyright 2019 Google Inc.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
-/**
- * Stores result from applyPassive to avoid redundant processing to detect
- * passive event listener support.
- */
-var supportsPassive_;
-/**
- * Determine whether the current browser supports passive event listeners, and
- * if so, use them.
- */
-function applyPassive(globalObj, forceRefresh) {
-    if (globalObj === void 0) { globalObj = window; }
-    if (forceRefresh === void 0) { forceRefresh = false; }
-    if (supportsPassive_ === undefined || forceRefresh) {
-        var isSupported_1 = false;
-        try {
-            globalObj.document.addEventListener('test', function () { return undefined; }, {
-                get passive() {
-                    isSupported_1 = true;
-                    return isSupported_1;
-                },
-            });
-        }
-        catch (e) {
-        } // tslint:disable-line:no-empty cannot throw error due to tests. tslint also disables console.log.
-        supportsPassive_ = isSupported_1;
-    }
-    return supportsPassive_ ? { passive: true } : false;
-}
-//# sourceMappingURL=events.js.map
-
-/***/ }),
-/* 29 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MDCDrawer; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__material_base_component__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_list_component__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__material_list_foundation__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_focus_trap__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_focus_trap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_focus_trap__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__dismissible_foundation__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__modal_foundation__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__util__ = __webpack_require__(14);
-/**
- * @license
- * Copyright 2016 Google Inc.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
-
-
-
-
-
-
-
-
-var cssClasses = __WEBPACK_IMPORTED_MODULE_5__dismissible_foundation__["a" /* MDCDismissibleDrawerFoundation */].cssClasses, strings = __WEBPACK_IMPORTED_MODULE_5__dismissible_foundation__["a" /* MDCDismissibleDrawerFoundation */].strings;
-/**
- * @events `MDCDrawer:closed {}` Emits when the navigation drawer has closed.
- * @events `MDCDrawer:opened {}` Emits when the navigation drawer has opened.
- */
-var MDCDrawer = /** @class */ (function (_super) {
-    __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __extends */](MDCDrawer, _super);
-    function MDCDrawer() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    MDCDrawer.attachTo = function (root) {
-        return new MDCDrawer(root);
-    };
-    Object.defineProperty(MDCDrawer.prototype, "open", {
-        /**
-         * @return boolean Proxies to the foundation's `open`/`close` methods.
-         * Also returns true if drawer is in the open position.
-         */
-        get: function () {
-            return this.foundation_.isOpen();
-        },
-        /**
-         * Toggles the drawer open and closed.
-         */
-        set: function (isOpen) {
-            if (isOpen) {
-                this.foundation_.open();
-            }
-            else {
-                this.foundation_.close();
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(MDCDrawer.prototype, "list", {
-        get: function () {
-            return this.list_;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    MDCDrawer.prototype.initialize = function (focusTrapFactory, listFactory) {
-        if (focusTrapFactory === void 0) { focusTrapFactory = __WEBPACK_IMPORTED_MODULE_4_focus_trap___default.a; }
-        if (listFactory === void 0) { listFactory = function (el) { return new __WEBPACK_IMPORTED_MODULE_2__material_list_component__["a" /* MDCList */](el); }; }
-        var listEl = this.root_.querySelector("." + __WEBPACK_IMPORTED_MODULE_3__material_list_foundation__["a" /* MDCListFoundation */].cssClasses.ROOT);
-        if (listEl) {
-            this.list_ = listFactory(listEl);
-            this.list_.wrapFocus = true;
-        }
-        this.focusTrapFactory_ = focusTrapFactory;
-    };
-    MDCDrawer.prototype.initialSyncWithDOM = function () {
-        var _this = this;
-        var MODAL = cssClasses.MODAL;
-        var SCRIM_SELECTOR = strings.SCRIM_SELECTOR;
-        this.scrim_ = this.root_.parentNode.querySelector(SCRIM_SELECTOR);
-        if (this.scrim_ && this.root_.classList.contains(MODAL)) {
-            this.handleScrimClick_ = function () { return _this.foundation_.handleScrimClick(); };
-            this.scrim_.addEventListener('click', this.handleScrimClick_);
-            this.focusTrap_ = __WEBPACK_IMPORTED_MODULE_7__util__["createFocusTrapInstance"](this.root_, this.focusTrapFactory_);
-        }
-        this.handleKeydown_ = function (evt) { return _this.foundation_.handleKeydown(evt); };
-        this.handleTransitionEnd_ = function (evt) { return _this.foundation_.handleTransitionEnd(evt); };
-        this.listen('keydown', this.handleKeydown_);
-        this.listen('transitionend', this.handleTransitionEnd_);
-    };
-    MDCDrawer.prototype.destroy = function () {
-        this.unlisten('keydown', this.handleKeydown_);
-        this.unlisten('transitionend', this.handleTransitionEnd_);
-        if (this.list_) {
-            this.list_.destroy();
-        }
-        var MODAL = cssClasses.MODAL;
-        if (this.scrim_ && this.handleScrimClick_ && this.root_.classList.contains(MODAL)) {
-            this.scrim_.removeEventListener('click', this.handleScrimClick_);
-            // Ensure drawer is closed to hide scrim and release focus
-            this.open = false;
-        }
-    };
-    MDCDrawer.prototype.getDefaultFoundation = function () {
-        var _this = this;
-        // DO NOT INLINE this variable. For backward compatibility, foundations take a Partial<MDCFooAdapter>.
-        // To ensure we don't accidentally omit any methods, we need a separate, strongly typed adapter variable.
-        // tslint:disable:object-literal-sort-keys Methods should be in the same order as the adapter interface.
-        var adapter = {
-            addClass: function (className) { return _this.root_.classList.add(className); },
-            removeClass: function (className) { return _this.root_.classList.remove(className); },
-            hasClass: function (className) { return _this.root_.classList.contains(className); },
-            elementHasClass: function (element, className) { return element.classList.contains(className); },
-            saveFocus: function () { return _this.previousFocus_ = document.activeElement; },
-            restoreFocus: function () {
-                var previousFocus = _this.previousFocus_;
-                if (previousFocus && previousFocus.focus && _this.root_.contains(document.activeElement)) {
-                    previousFocus.focus();
-                }
-            },
-            focusActiveNavigationItem: function () {
-                var activeNavItemEl = _this.root_.querySelector("." + __WEBPACK_IMPORTED_MODULE_3__material_list_foundation__["a" /* MDCListFoundation */].cssClasses.LIST_ITEM_ACTIVATED_CLASS);
-                if (activeNavItemEl) {
-                    activeNavItemEl.focus();
-                }
-            },
-            notifyClose: function () { return _this.emit(strings.CLOSE_EVENT, {}, true /* shouldBubble */); },
-            notifyOpen: function () { return _this.emit(strings.OPEN_EVENT, {}, true /* shouldBubble */); },
-            trapFocus: function () { return _this.focusTrap_.activate(); },
-            releaseFocus: function () { return _this.focusTrap_.deactivate(); },
-        };
-        // tslint:enable:object-literal-sort-keys
-        var DISMISSIBLE = cssClasses.DISMISSIBLE, MODAL = cssClasses.MODAL;
-        if (this.root_.classList.contains(DISMISSIBLE)) {
-            return new __WEBPACK_IMPORTED_MODULE_5__dismissible_foundation__["a" /* MDCDismissibleDrawerFoundation */](adapter);
-        }
-        else if (this.root_.classList.contains(MODAL)) {
-            return new __WEBPACK_IMPORTED_MODULE_6__modal_foundation__["a" /* MDCModalDrawerFoundation */](adapter);
-        }
-        else {
-            throw new Error("MDCDrawer: Failed to instantiate component. Supported variants are " + DISMISSIBLE + " and " + MODAL + ".");
-        }
-    };
-    return MDCDrawer;
-}(__WEBPACK_IMPORTED_MODULE_1__material_base_component__["a" /* MDCComponent */]));
-
-//# sourceMappingURL=component.js.map
-
-/***/ }),
-/* 30 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util__ = __webpack_require__(14);
-/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "util", function() { return __WEBPACK_IMPORTED_MODULE_0__util__; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component__ = __webpack_require__(29);
-/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "MDCDrawer", function() { return __WEBPACK_IMPORTED_MODULE_1__component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__constants__ = __webpack_require__(12);
-/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "cssClasses", function() { return __WEBPACK_IMPORTED_MODULE_2__constants__["a"]; });
-/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "strings", function() { return __WEBPACK_IMPORTED_MODULE_2__constants__["b"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dismissible_foundation__ = __webpack_require__(5);
-/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "MDCDismissibleDrawerFoundation", function() { return __WEBPACK_IMPORTED_MODULE_3__dismissible_foundation__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__modal_foundation__ = __webpack_require__(13);
-/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "MDCModalDrawerFoundation", function() { return __WEBPACK_IMPORTED_MODULE_4__modal_foundation__["a"]; });
-/**
- * @license
- * Copyright 2019 Google Inc.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
-
-
-
-
-
-
-//# sourceMappingURL=index.js.map
-
-/***/ }),
-/* 31 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__component__ = __webpack_require__(15);
-/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "MDCList", function() { return __WEBPACK_IMPORTED_MODULE_0__component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__constants__ = __webpack_require__(6);
-/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "strings", function() { return __WEBPACK_IMPORTED_MODULE_1__constants__["a"]; });
-/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "cssClasses", function() { return __WEBPACK_IMPORTED_MODULE_1__constants__["b"]; });
-/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "numbers", function() { return __WEBPACK_IMPORTED_MODULE_1__constants__["c"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__foundation__ = __webpack_require__(7);
-/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "MDCListFoundation", function() { return __WEBPACK_IMPORTED_MODULE_2__foundation__["a"]; });
-/**
- * @license
- * Copyright 2019 Google Inc.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
-
-
-
-//# sourceMappingURL=index.js.map
-
-/***/ }),
-/* 32 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util__ = __webpack_require__(8);
-/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "util", function() { return __WEBPACK_IMPORTED_MODULE_0__util__; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component__ = __webpack_require__(16);
-/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "MDCRipple", function() { return __WEBPACK_IMPORTED_MODULE_1__component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__constants__ = __webpack_require__(17);
-/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "cssClasses", function() { return __WEBPACK_IMPORTED_MODULE_2__constants__["a"]; });
-/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "strings", function() { return __WEBPACK_IMPORTED_MODULE_2__constants__["b"]; });
-/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "numbers", function() { return __WEBPACK_IMPORTED_MODULE_2__constants__["c"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__foundation__ = __webpack_require__(18);
-/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "MDCRippleFoundation", function() { return __WEBPACK_IMPORTED_MODULE_3__foundation__["a"]; });
-/**
- * @license
- * Copyright 2019 Google Inc.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
-
-
-
-
-
-//# sourceMappingURL=index.js.map
-
-/***/ }),
-/* 33 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MDCTopAppBar; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__material_base_component__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_ripple_component__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__constants__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__fixed_foundation__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__short_foundation__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__standard_foundation__ = __webpack_require__(10);
-/**
- * @license
- * Copyright 2018 Google Inc.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
-
-
-
-
-
-
-
-var MDCTopAppBar = /** @class */ (function (_super) {
-    __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __extends */](MDCTopAppBar, _super);
-    function MDCTopAppBar() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    MDCTopAppBar.attachTo = function (root) {
-        return new MDCTopAppBar(root);
-    };
-    MDCTopAppBar.prototype.initialize = function (rippleFactory) {
-        if (rippleFactory === void 0) { rippleFactory = function (el) { return __WEBPACK_IMPORTED_MODULE_2__material_ripple_component__["a" /* MDCRipple */].attachTo(el); }; }
-        this.navIcon_ = this.root_.querySelector(__WEBPACK_IMPORTED_MODULE_3__constants__["c" /* strings */].NAVIGATION_ICON_SELECTOR);
-        // Get all icons in the toolbar and instantiate the ripples
-        var icons = [].slice.call(this.root_.querySelectorAll(__WEBPACK_IMPORTED_MODULE_3__constants__["c" /* strings */].ACTION_ITEM_SELECTOR));
-        if (this.navIcon_) {
-            icons.push(this.navIcon_);
-        }
-        this.iconRipples_ = icons.map(function (icon) {
-            var ripple = rippleFactory(icon);
-            ripple.unbounded = true;
-            return ripple;
-        });
-        this.scrollTarget_ = window;
-    };
-    MDCTopAppBar.prototype.initialSyncWithDOM = function () {
-        this.handleNavigationClick_ = this.foundation_.handleNavigationClick.bind(this.foundation_);
-        this.handleWindowResize_ = this.foundation_.handleWindowResize.bind(this.foundation_);
-        this.handleTargetScroll_ = this.foundation_.handleTargetScroll.bind(this.foundation_);
-        this.scrollTarget_.addEventListener('scroll', this.handleTargetScroll_);
-        if (this.navIcon_) {
-            this.navIcon_.addEventListener('click', this.handleNavigationClick_);
-        }
-        var isFixed = this.root_.classList.contains(__WEBPACK_IMPORTED_MODULE_3__constants__["a" /* cssClasses */].FIXED_CLASS);
-        var isShort = this.root_.classList.contains(__WEBPACK_IMPORTED_MODULE_3__constants__["a" /* cssClasses */].SHORT_CLASS);
-        if (!isShort && !isFixed) {
-            window.addEventListener('resize', this.handleWindowResize_);
-        }
-    };
-    MDCTopAppBar.prototype.destroy = function () {
-        this.iconRipples_.forEach(function (iconRipple) { return iconRipple.destroy(); });
-        this.scrollTarget_.removeEventListener('scroll', this.handleTargetScroll_);
-        if (this.navIcon_) {
-            this.navIcon_.removeEventListener('click', this.handleNavigationClick_);
-        }
-        var isFixed = this.root_.classList.contains(__WEBPACK_IMPORTED_MODULE_3__constants__["a" /* cssClasses */].FIXED_CLASS);
-        var isShort = this.root_.classList.contains(__WEBPACK_IMPORTED_MODULE_3__constants__["a" /* cssClasses */].SHORT_CLASS);
-        if (!isShort && !isFixed) {
-            window.removeEventListener('resize', this.handleWindowResize_);
-        }
-        _super.prototype.destroy.call(this);
-    };
-    MDCTopAppBar.prototype.setScrollTarget = function (target) {
-        // Remove scroll handler from the previous scroll target
-        this.scrollTarget_.removeEventListener('scroll', this.handleTargetScroll_);
-        this.scrollTarget_ = target;
-        // Initialize scroll handler on the new scroll target
-        this.handleTargetScroll_ =
-            this.foundation_.handleTargetScroll.bind(this.foundation_);
-        this.scrollTarget_.addEventListener('scroll', this.handleTargetScroll_);
-    };
-    MDCTopAppBar.prototype.getDefaultFoundation = function () {
-        var _this = this;
-        // DO NOT INLINE this variable. For backward compatibility, foundations take a Partial<MDCFooAdapter>.
-        // To ensure we don't accidentally omit any methods, we need a separate, strongly typed adapter variable.
-        // tslint:disable:object-literal-sort-keys Methods should be in the same order as the adapter interface.
-        var adapter = {
-            hasClass: function (className) { return _this.root_.classList.contains(className); },
-            addClass: function (className) { return _this.root_.classList.add(className); },
-            removeClass: function (className) { return _this.root_.classList.remove(className); },
-            setStyle: function (property, value) { return _this.root_.style.setProperty(property, value); },
-            getTopAppBarHeight: function () { return _this.root_.clientHeight; },
-            notifyNavigationIconClicked: function () { return _this.emit(__WEBPACK_IMPORTED_MODULE_3__constants__["c" /* strings */].NAVIGATION_EVENT, {}); },
-            getViewportScrollY: function () {
-                var win = _this.scrollTarget_;
-                var el = _this.scrollTarget_;
-                return win.pageYOffset !== undefined ? win.pageYOffset : el.scrollTop;
-            },
-            getTotalActionItems: function () { return _this.root_.querySelectorAll(__WEBPACK_IMPORTED_MODULE_3__constants__["c" /* strings */].ACTION_ITEM_SELECTOR).length; },
-        };
-        // tslint:enable:object-literal-sort-keys
-        var foundation;
-        if (this.root_.classList.contains(__WEBPACK_IMPORTED_MODULE_3__constants__["a" /* cssClasses */].SHORT_CLASS)) {
-            foundation = new __WEBPACK_IMPORTED_MODULE_5__short_foundation__["a" /* MDCShortTopAppBarFoundation */](adapter);
-        }
-        else if (this.root_.classList.contains(__WEBPACK_IMPORTED_MODULE_3__constants__["a" /* cssClasses */].FIXED_CLASS)) {
-            foundation = new __WEBPACK_IMPORTED_MODULE_4__fixed_foundation__["a" /* MDCFixedTopAppBarFoundation */](adapter);
-        }
-        else {
-            foundation = new __WEBPACK_IMPORTED_MODULE_6__standard_foundation__["a" /* MDCTopAppBarFoundation */](adapter);
-        }
-        return foundation;
-    };
-    return MDCTopAppBar;
-}(__WEBPACK_IMPORTED_MODULE_1__material_base_component__["a" /* MDCComponent */]));
-
-//# sourceMappingURL=component.js.map
-
-/***/ }),
-/* 34 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__component__ = __webpack_require__(33);
-/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "MDCTopAppBar", function() { return __WEBPACK_IMPORTED_MODULE_0__component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__constants__ = __webpack_require__(1);
-/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "cssClasses", function() { return __WEBPACK_IMPORTED_MODULE_1__constants__["a"]; });
-/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "numbers", function() { return __WEBPACK_IMPORTED_MODULE_1__constants__["b"]; });
-/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "strings", function() { return __WEBPACK_IMPORTED_MODULE_1__constants__["c"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__foundation__ = __webpack_require__(9);
-/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "MDCTopAppBarBaseFoundation", function() { return __WEBPACK_IMPORTED_MODULE_2__foundation__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__fixed_foundation__ = __webpack_require__(19);
-/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "MDCFixedTopAppBarFoundation", function() { return __WEBPACK_IMPORTED_MODULE_3__fixed_foundation__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__short_foundation__ = __webpack_require__(20);
-/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "MDCShortTopAppBarFoundation", function() { return __WEBPACK_IMPORTED_MODULE_4__short_foundation__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__standard_foundation__ = __webpack_require__(10);
-/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "MDCTopAppBarFoundation", function() { return __WEBPACK_IMPORTED_MODULE_5__standard_foundation__["a"]; });
-/**
- * @license
- * Copyright 2019 Google Inc.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
-
-
-
-
-
-
-//# sourceMappingURL=index.js.map
-
-/***/ }),
-/* 35 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Drawer = exports.Login = exports.InputButton = exports.HelloMan = exports.InputBox = undefined;
-
-var _HelloMan = __webpack_require__(24);
-
-var _HelloMan2 = _interopRequireDefault(_HelloMan);
-
-var _InputButton = __webpack_require__(26);
-
-var _InputButton2 = _interopRequireDefault(_InputButton);
-
-var _InputBox = __webpack_require__(25);
-
-var _InputBox2 = _interopRequireDefault(_InputBox);
-
-var _login = __webpack_require__(27);
-
-var _login2 = _interopRequireDefault(_login);
-
-var _Drawer = __webpack_require__(23);
-
-var _Drawer2 = _interopRequireDefault(_Drawer);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.InputBox = _InputBox2.default;
-exports.HelloMan = _HelloMan2.default;
-exports.InputButton = _InputButton2.default;
-exports.Login = _login2.default;
-exports.Drawer = _Drawer2.default;
-
-/***/ }),
-/* 36 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(21)(false);
-// Module
-exports.push([module.i, "\n$mdc-theme-primary: #1997c6;\n$mdc-theme-primary-light: #62c8f9;\n$mdc-theme-primary-dark: #006995;\n$mdc-theme-on-primary: #ffffff;\n\n$mdc-theme-secondary: #252830;\n$mdc-theme-secondary-light: #30343e;\n$mdc-theme-secondary-dark: #000007;\n$mdc-theme-on-secondary: #cfd2da;\n\n$mdc-theme-background: #252830;\n$mdc-modal-color: #24272e;\n$mdc-modal-fill-color: #3b4148;\n\n$mdc-theme-danger: #f8d7da;\n$mdc-theme-on-danger: #721c24;\n$mdc-theme-danger-border: #f5c6cb;\n\n$mdc-theme-error: #E64759;", ""]);
-
-
-/***/ }),
-/* 37 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(21)(false);
-// Imports
-exports.i(__webpack_require__(36), "");
-// Module
-exports.push([module.i, "\n.login-div-main {\n    align-content: center;\n    width: 500px;\n    text-align: center;\n    background-color: #1fa8b5;\n  }\n  \n  .login-div-content-label {\n    float: left;\n    align-content: center;\n    width: 200px;\n    height: 220px;\n    font-size: 25px;\n    text-align: right;\n    /* background-color: #c4b0ab; */\n    /* padding-bottom: 50px;\n    padding-top: 10px; */\n  }\n  \n  .login-div-content-inputfield {\n    float: right;\n    align-content: center;\n    width: 300px;\n    height: 220px;\n    text-align: left;\n    /* background-color: #604f3d */\n    /* padding-bottom: 50px;\n    padding-top: 10px; */\n  }\n  \n  .login-div-heading {\n    vertical-align: middle;\n    line-height: 80px; \n    width: 500px;\n    height: 80px;\n    text-align: center;\n    /* background-color: #63b51f; */\n  }\n  \n  .login-div-content {\n    align-content: center;\n    width: 500px;\n    height: 220px;\n    text-align: center;\n    /* background-color: #b56f1f; */\n  }\n  \n  .login-div-content-label-span{\n    padding-top: 35px;\n    padding-bottom: 30px;\n    padding-right: 10px;\n    padding-left: 20px;\n    vertical-align: middle;\n    line-height: 60px; \n  }\n  .login-div-content-input-span{\n    padding-top: 40px;\n    padding-bottom: 30px;\n    padding-right: 10px;\n    vertical-align: middle;\n    line-height: 60px; \n  }\n  ", ""]);
-
-
-/***/ }),
-/* 38 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var content = __webpack_require__(37);
-
-if (typeof content === 'string') {
-  content = [[module.i, content, '']];
-}
-
-var options = {}
-
-options.insert = "head";
-options.singleton = false;
-
-var update = __webpack_require__(39)(content, options);
-
-if (content.locals) {
-  module.exports = content.locals;
-}
-
-
-/***/ }),
-/* 39 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
 var stylesInDom = {};
 
 var isOldIE = function isOldIE() {
@@ -4780,7 +3665,1155 @@ module.exports = function (list, options) {
 };
 
 /***/ }),
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _drawer = __webpack_require__(31);
+
+var _topAppBar = __webpack_require__(35);
+
+var _ripple = __webpack_require__(33);
+
+var _list = __webpack_require__(32);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// import drawer, top-app-bar
+
+
+var Drawer = function (_Component) {
+  _inherits(Drawer, _Component);
+
+  function Drawer() {
+    _classCallCheck(this, Drawer);
+
+    return _possibleConstructorReturn(this, (Drawer.__proto__ || Object.getPrototypeOf(Drawer)).apply(this, arguments));
+  }
+
+  _createClass(Drawer, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var drawer = _drawer.MDCDrawer.attachTo(document.querySelector(".mdc-drawer"));
+      var topAppBar = _topAppBar.MDCTopAppBar.attachTo(document.getElementById("app-bar"));
+      topAppBar.setScrollTarget(document.getElementById("main-content"));
+      topAppBar.listen("MDCTopAppBar:nav", function () {
+        drawer.open = !drawer.open;
+      });
+
+      var list = new _list.MDCList(document.querySelector(".mdc-list"));
+      var listItemRipples = list.listElements.map(function (listItemEl) {
+        return new _ripple.MDCRipple(listItemEl);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "div",
+        { className: "drawer-wrapper" },
+        _react2.default.createElement(
+          "header",
+          { className: "mdc-top-app-bar app-bar", id: "app-bar" },
+          _react2.default.createElement(
+            "div",
+            { className: "mdc-top-app-bar__row" },
+            _react2.default.createElement(
+              "section",
+              { className: "mdc-top-app-bar__section mdc-top-app-bar__section--align-start" },
+              _react2.default.createElement(
+                "a",
+                { href: "#", className: "demo-menu material-icons mdc-top-app-bar__navigation-icon" },
+                "menu"
+              ),
+              _react2.default.createElement(
+                "span",
+                { className: "mdc-top-app-bar__title" },
+                "Dismissible Drawer"
+              )
+            )
+          )
+        ),
+        _react2.default.createElement(
+          "aside",
+          { className: "mdc-drawer mdc-drawer--dismissible mdc-top-app-bar--fixed-adjust" },
+          _react2.default.createElement(
+            "div",
+            { className: "mdc-drawer__content" },
+            _react2.default.createElement(
+              "div",
+              { className: "mdc-list" },
+              _react2.default.createElement(
+                "a",
+                { className: "mdc-list-item mdc-list-item--activated", href: "#", "aria-current": "page" },
+                _react2.default.createElement(
+                  "i",
+                  { className: "material-icons mdc-list-item__graphic", "aria-hidden": "true" },
+                  "dashboard"
+                ),
+                _react2.default.createElement(
+                  "span",
+                  { className: "mdc-list-item__text" },
+                  "Dashboard"
+                )
+              ),
+              _react2.default.createElement(
+                "a",
+                { className: "mdc-list-item", href: "#" },
+                _react2.default.createElement(
+                  "i",
+                  { className: "material-icons mdc-list-item__graphic", "aria-hidden": "true" },
+                  "videocam"
+                ),
+                _react2.default.createElement(
+                  "span",
+                  { className: "mdc-list-item__text" },
+                  "LiveStream"
+                )
+              ),
+              _react2.default.createElement(
+                "a",
+                { className: "mdc-list-item", href: "#" },
+                _react2.default.createElement(
+                  "i",
+                  { className: "material-icons mdc-list-item__graphic", "aria-hidden": "true" },
+                  "drafts"
+                ),
+                _react2.default.createElement(
+                  "span",
+                  { className: "mdc-list-item__text" },
+                  "Downstreams"
+                )
+              ),
+              _react2.default.createElement(
+                "a",
+                { className: "mdc-list-item", href: "#" },
+                _react2.default.createElement(
+                  "i",
+                  { className: "material-icons mdc-list-item__graphic", "aria-hidden": "true" },
+                  "drafts"
+                ),
+                _react2.default.createElement(
+                  "span",
+                  { className: "mdc-list-item__text" },
+                  "Upstream"
+                )
+              ),
+              _react2.default.createElement(
+                "a",
+                { className: "mdc-list-item", href: "#" },
+                _react2.default.createElement(
+                  "i",
+                  { className: "material-icons mdc-list-item__graphic", "aria-hidden": "true" },
+                  "drafts"
+                ),
+                _react2.default.createElement(
+                  "span",
+                  { className: "mdc-list-item__text" },
+                  "Devices"
+                )
+              )
+            )
+          )
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "mdc-drawer-app-content mdc-top-app-bar--fixed-adjust" },
+          _react2.default.createElement(
+            "main",
+            { className: "main-content", id: "main-content" },
+            "App Content"
+          )
+        )
+      );
+    }
+  }]);
+
+  return Drawer;
+}(_react.Component);
+
+exports.default = Drawer;
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+__webpack_require__(40);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var HelloMan = function (_React$Component) {
+  _inherits(HelloMan, _React$Component);
+
+  function HelloMan() {
+    _classCallCheck(this, HelloMan);
+
+    return _possibleConstructorReturn(this, (HelloMan.__proto__ || Object.getPrototypeOf(HelloMan)).apply(this, arguments));
+  }
+
+  _createClass(HelloMan, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "div",
+        { className: "align-right" },
+        "Hello ",
+        this.props.name
+      );
+      // return <button type="button">{this.props.name}</button>;
+    }
+  }]);
+
+  return HelloMan;
+}(_react2.default.Component);
+
+exports.default = HelloMan;
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var InputBox = function (_React$Component) {
+  _inherits(InputBox, _React$Component);
+
+  function InputBox() {
+    _classCallCheck(this, InputBox);
+
+    return _possibleConstructorReturn(this, (InputBox.__proto__ || Object.getPrototypeOf(InputBox)).apply(this, arguments));
+  }
+
+  _createClass(InputBox, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "div",
+        null,
+        _react2.default.createElement(
+          "span",
+          null,
+          this.props.label + ": " || ""
+        ),
+        _react2.default.createElement("input", {
+          className: this.props.className,
+          type: this.props.type || "text",
+          placeholder: this.props.placeholder,
+          onChange: this.props.onChange,
+          value: this.props.value
+        })
+      );
+    }
+  }]);
+
+  return InputBox;
+}(_react2.default.Component);
+
+exports.default = InputBox;
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var InputButton = function (_React$Component) {
+  _inherits(InputButton, _React$Component);
+
+  function InputButton() {
+    _classCallCheck(this, InputButton);
+
+    return _possibleConstructorReturn(this, (InputButton.__proto__ || Object.getPrototypeOf(InputButton)).apply(this, arguments));
+  }
+
+  _createClass(InputButton, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "div",
+        null,
+        _react2.default.createElement(
+          "button",
+          {
+            onClick: this.props.onClick,
+            className: this.props.className,
+            type: "button"
+          },
+          this.props.value || "Button"
+        )
+      );
+    }
+  }]);
+
+  return InputButton;
+}(_react2.default.Component);
+
+exports.default = InputButton;
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+__webpack_require__(41);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Login = function (_React$Component) {
+  _inherits(Login, _React$Component);
+
+  function Login() {
+    _classCallCheck(this, Login);
+
+    return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).apply(this, arguments));
+  }
+
+  _createClass(Login, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "div",
+        { className: "login-div-main" },
+        _react2.default.createElement(
+          "div",
+          { className: "login-div-heading" },
+          this.props.heading || "Log In"
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "login-div-content" },
+          _react2.default.createElement(
+            "div",
+            { className: "login-div-content-label" },
+            _react2.default.createElement(
+              "div",
+              { className: "login-div-content-label-span" },
+              _react2.default.createElement(
+                "span",
+                null,
+                this.props.userNameLabel + " : " || "Username : "
+              ),
+              _react2.default.createElement("br", null),
+              _react2.default.createElement(
+                "span",
+                null,
+                this.props.passwordLabel + " : " || "Password : "
+              )
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "login-div-content-inputfield" },
+            _react2.default.createElement(
+              "div",
+              { className: "login-div-content-input-span" },
+              _react2.default.createElement("input", {
+                className: this.props.className,
+                type: "text",
+                placeholder: this.props.userNamePlaceholder || "username",
+                onChange: this.props.onChangeUserName,
+                value: this.props.userNameValue
+              }),
+              _react2.default.createElement("input", {
+                className: this.props.className,
+                type: "password",
+                placeholder: this.props.passwordPlaceholder || "password",
+                onChange: this.props.onChangePassword,
+                value: this.props.passwordValue
+              })
+            )
+          )
+        )
+      )
+
+      //   <div>
+      //     <h1>{this.props.heading || "Log In"}</h1>
+      //     <br />
+      //     <br />
+      //     <span>{this.props.userNameLabel + " : " || "Username : "}</span>
+      //     <input
+      //       className={this.props.className}
+      //       type="text"
+      //       placeholder={this.props.userNamePlaceholder}
+      //       onChange={this.props.onChangeUserName}
+      //       value={this.props.userNameValue}
+      //     />
+      //     <br />
+      //     <span>{this.props.passwordLabel + " : " || "Password : "}</span>
+      //     <input
+      //       className={this.props.className}
+      //       type="password"
+      //       placeholder={this.props.passwordPlaceholder}
+      //       onChange={this.props.onChangePassword}
+      //       value={this.props.passwordValue}
+      //     />
+      //   </div>
+      ;
+    }
+  }]);
+
+  return Login;
+}(_react2.default.Component);
+
+exports.default = Login;
+
+/***/ }),
+/* 29 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = applyPassive;
+/**
+ * @license
+ * Copyright 2019 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+/**
+ * Stores result from applyPassive to avoid redundant processing to detect
+ * passive event listener support.
+ */
+var supportsPassive_;
+/**
+ * Determine whether the current browser supports passive event listeners, and
+ * if so, use them.
+ */
+function applyPassive(globalObj, forceRefresh) {
+    if (globalObj === void 0) { globalObj = window; }
+    if (forceRefresh === void 0) { forceRefresh = false; }
+    if (supportsPassive_ === undefined || forceRefresh) {
+        var isSupported_1 = false;
+        try {
+            globalObj.document.addEventListener('test', function () { return undefined; }, {
+                get passive() {
+                    isSupported_1 = true;
+                    return isSupported_1;
+                },
+            });
+        }
+        catch (e) {
+        } // tslint:disable-line:no-empty cannot throw error due to tests. tslint also disables console.log.
+        supportsPassive_ = isSupported_1;
+    }
+    return supportsPassive_ ? { passive: true } : false;
+}
+//# sourceMappingURL=events.js.map
+
+/***/ }),
+/* 30 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MDCDrawer; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__material_base_component__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_list_component__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__material_list_foundation__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_focus_trap__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_focus_trap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_focus_trap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__dismissible_foundation__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__modal_foundation__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__util__ = __webpack_require__(15);
+/**
+ * @license
+ * Copyright 2016 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+
+
+
+
+
+
+
+var cssClasses = __WEBPACK_IMPORTED_MODULE_5__dismissible_foundation__["a" /* MDCDismissibleDrawerFoundation */].cssClasses, strings = __WEBPACK_IMPORTED_MODULE_5__dismissible_foundation__["a" /* MDCDismissibleDrawerFoundation */].strings;
+/**
+ * @events `MDCDrawer:closed {}` Emits when the navigation drawer has closed.
+ * @events `MDCDrawer:opened {}` Emits when the navigation drawer has opened.
+ */
+var MDCDrawer = /** @class */ (function (_super) {
+    __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __extends */](MDCDrawer, _super);
+    function MDCDrawer() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    MDCDrawer.attachTo = function (root) {
+        return new MDCDrawer(root);
+    };
+    Object.defineProperty(MDCDrawer.prototype, "open", {
+        /**
+         * @return boolean Proxies to the foundation's `open`/`close` methods.
+         * Also returns true if drawer is in the open position.
+         */
+        get: function () {
+            return this.foundation_.isOpen();
+        },
+        /**
+         * Toggles the drawer open and closed.
+         */
+        set: function (isOpen) {
+            if (isOpen) {
+                this.foundation_.open();
+            }
+            else {
+                this.foundation_.close();
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(MDCDrawer.prototype, "list", {
+        get: function () {
+            return this.list_;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    MDCDrawer.prototype.initialize = function (focusTrapFactory, listFactory) {
+        if (focusTrapFactory === void 0) { focusTrapFactory = __WEBPACK_IMPORTED_MODULE_4_focus_trap___default.a; }
+        if (listFactory === void 0) { listFactory = function (el) { return new __WEBPACK_IMPORTED_MODULE_2__material_list_component__["a" /* MDCList */](el); }; }
+        var listEl = this.root_.querySelector("." + __WEBPACK_IMPORTED_MODULE_3__material_list_foundation__["a" /* MDCListFoundation */].cssClasses.ROOT);
+        if (listEl) {
+            this.list_ = listFactory(listEl);
+            this.list_.wrapFocus = true;
+        }
+        this.focusTrapFactory_ = focusTrapFactory;
+    };
+    MDCDrawer.prototype.initialSyncWithDOM = function () {
+        var _this = this;
+        var MODAL = cssClasses.MODAL;
+        var SCRIM_SELECTOR = strings.SCRIM_SELECTOR;
+        this.scrim_ = this.root_.parentNode.querySelector(SCRIM_SELECTOR);
+        if (this.scrim_ && this.root_.classList.contains(MODAL)) {
+            this.handleScrimClick_ = function () { return _this.foundation_.handleScrimClick(); };
+            this.scrim_.addEventListener('click', this.handleScrimClick_);
+            this.focusTrap_ = __WEBPACK_IMPORTED_MODULE_7__util__["createFocusTrapInstance"](this.root_, this.focusTrapFactory_);
+        }
+        this.handleKeydown_ = function (evt) { return _this.foundation_.handleKeydown(evt); };
+        this.handleTransitionEnd_ = function (evt) { return _this.foundation_.handleTransitionEnd(evt); };
+        this.listen('keydown', this.handleKeydown_);
+        this.listen('transitionend', this.handleTransitionEnd_);
+    };
+    MDCDrawer.prototype.destroy = function () {
+        this.unlisten('keydown', this.handleKeydown_);
+        this.unlisten('transitionend', this.handleTransitionEnd_);
+        if (this.list_) {
+            this.list_.destroy();
+        }
+        var MODAL = cssClasses.MODAL;
+        if (this.scrim_ && this.handleScrimClick_ && this.root_.classList.contains(MODAL)) {
+            this.scrim_.removeEventListener('click', this.handleScrimClick_);
+            // Ensure drawer is closed to hide scrim and release focus
+            this.open = false;
+        }
+    };
+    MDCDrawer.prototype.getDefaultFoundation = function () {
+        var _this = this;
+        // DO NOT INLINE this variable. For backward compatibility, foundations take a Partial<MDCFooAdapter>.
+        // To ensure we don't accidentally omit any methods, we need a separate, strongly typed adapter variable.
+        // tslint:disable:object-literal-sort-keys Methods should be in the same order as the adapter interface.
+        var adapter = {
+            addClass: function (className) { return _this.root_.classList.add(className); },
+            removeClass: function (className) { return _this.root_.classList.remove(className); },
+            hasClass: function (className) { return _this.root_.classList.contains(className); },
+            elementHasClass: function (element, className) { return element.classList.contains(className); },
+            saveFocus: function () { return _this.previousFocus_ = document.activeElement; },
+            restoreFocus: function () {
+                var previousFocus = _this.previousFocus_;
+                if (previousFocus && previousFocus.focus && _this.root_.contains(document.activeElement)) {
+                    previousFocus.focus();
+                }
+            },
+            focusActiveNavigationItem: function () {
+                var activeNavItemEl = _this.root_.querySelector("." + __WEBPACK_IMPORTED_MODULE_3__material_list_foundation__["a" /* MDCListFoundation */].cssClasses.LIST_ITEM_ACTIVATED_CLASS);
+                if (activeNavItemEl) {
+                    activeNavItemEl.focus();
+                }
+            },
+            notifyClose: function () { return _this.emit(strings.CLOSE_EVENT, {}, true /* shouldBubble */); },
+            notifyOpen: function () { return _this.emit(strings.OPEN_EVENT, {}, true /* shouldBubble */); },
+            trapFocus: function () { return _this.focusTrap_.activate(); },
+            releaseFocus: function () { return _this.focusTrap_.deactivate(); },
+        };
+        // tslint:enable:object-literal-sort-keys
+        var DISMISSIBLE = cssClasses.DISMISSIBLE, MODAL = cssClasses.MODAL;
+        if (this.root_.classList.contains(DISMISSIBLE)) {
+            return new __WEBPACK_IMPORTED_MODULE_5__dismissible_foundation__["a" /* MDCDismissibleDrawerFoundation */](adapter);
+        }
+        else if (this.root_.classList.contains(MODAL)) {
+            return new __WEBPACK_IMPORTED_MODULE_6__modal_foundation__["a" /* MDCModalDrawerFoundation */](adapter);
+        }
+        else {
+            throw new Error("MDCDrawer: Failed to instantiate component. Supported variants are " + DISMISSIBLE + " and " + MODAL + ".");
+        }
+    };
+    return MDCDrawer;
+}(__WEBPACK_IMPORTED_MODULE_1__material_base_component__["a" /* MDCComponent */]));
+
+//# sourceMappingURL=component.js.map
+
+/***/ }),
+/* 31 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util__ = __webpack_require__(15);
+/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "util", function() { return __WEBPACK_IMPORTED_MODULE_0__util__; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component__ = __webpack_require__(30);
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "MDCDrawer", function() { return __WEBPACK_IMPORTED_MODULE_1__component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__constants__ = __webpack_require__(13);
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "cssClasses", function() { return __WEBPACK_IMPORTED_MODULE_2__constants__["a"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "strings", function() { return __WEBPACK_IMPORTED_MODULE_2__constants__["b"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dismissible_foundation__ = __webpack_require__(5);
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "MDCDismissibleDrawerFoundation", function() { return __WEBPACK_IMPORTED_MODULE_3__dismissible_foundation__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__modal_foundation__ = __webpack_require__(14);
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "MDCModalDrawerFoundation", function() { return __WEBPACK_IMPORTED_MODULE_4__modal_foundation__["a"]; });
+/**
+ * @license
+ * Copyright 2019 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+
+
+
+
+
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+/* 32 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__component__ = __webpack_require__(16);
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "MDCList", function() { return __WEBPACK_IMPORTED_MODULE_0__component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__constants__ = __webpack_require__(6);
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "strings", function() { return __WEBPACK_IMPORTED_MODULE_1__constants__["a"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "cssClasses", function() { return __WEBPACK_IMPORTED_MODULE_1__constants__["b"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "numbers", function() { return __WEBPACK_IMPORTED_MODULE_1__constants__["c"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__foundation__ = __webpack_require__(7);
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "MDCListFoundation", function() { return __WEBPACK_IMPORTED_MODULE_2__foundation__["a"]; });
+/**
+ * @license
+ * Copyright 2019 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+
+
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+/* 33 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util__ = __webpack_require__(8);
+/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "util", function() { return __WEBPACK_IMPORTED_MODULE_0__util__; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__component__ = __webpack_require__(17);
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "MDCRipple", function() { return __WEBPACK_IMPORTED_MODULE_1__component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__constants__ = __webpack_require__(18);
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "cssClasses", function() { return __WEBPACK_IMPORTED_MODULE_2__constants__["a"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "strings", function() { return __WEBPACK_IMPORTED_MODULE_2__constants__["b"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "numbers", function() { return __WEBPACK_IMPORTED_MODULE_2__constants__["c"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__foundation__ = __webpack_require__(19);
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "MDCRippleFoundation", function() { return __WEBPACK_IMPORTED_MODULE_3__foundation__["a"]; });
+/**
+ * @license
+ * Copyright 2019 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+
+
+
+
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+/* 34 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MDCTopAppBar; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__material_base_component__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_ripple_component__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__constants__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__fixed_foundation__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__short_foundation__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__standard_foundation__ = __webpack_require__(10);
+/**
+ * @license
+ * Copyright 2018 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+
+
+
+
+
+
+var MDCTopAppBar = /** @class */ (function (_super) {
+    __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __extends */](MDCTopAppBar, _super);
+    function MDCTopAppBar() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    MDCTopAppBar.attachTo = function (root) {
+        return new MDCTopAppBar(root);
+    };
+    MDCTopAppBar.prototype.initialize = function (rippleFactory) {
+        if (rippleFactory === void 0) { rippleFactory = function (el) { return __WEBPACK_IMPORTED_MODULE_2__material_ripple_component__["a" /* MDCRipple */].attachTo(el); }; }
+        this.navIcon_ = this.root_.querySelector(__WEBPACK_IMPORTED_MODULE_3__constants__["c" /* strings */].NAVIGATION_ICON_SELECTOR);
+        // Get all icons in the toolbar and instantiate the ripples
+        var icons = [].slice.call(this.root_.querySelectorAll(__WEBPACK_IMPORTED_MODULE_3__constants__["c" /* strings */].ACTION_ITEM_SELECTOR));
+        if (this.navIcon_) {
+            icons.push(this.navIcon_);
+        }
+        this.iconRipples_ = icons.map(function (icon) {
+            var ripple = rippleFactory(icon);
+            ripple.unbounded = true;
+            return ripple;
+        });
+        this.scrollTarget_ = window;
+    };
+    MDCTopAppBar.prototype.initialSyncWithDOM = function () {
+        this.handleNavigationClick_ = this.foundation_.handleNavigationClick.bind(this.foundation_);
+        this.handleWindowResize_ = this.foundation_.handleWindowResize.bind(this.foundation_);
+        this.handleTargetScroll_ = this.foundation_.handleTargetScroll.bind(this.foundation_);
+        this.scrollTarget_.addEventListener('scroll', this.handleTargetScroll_);
+        if (this.navIcon_) {
+            this.navIcon_.addEventListener('click', this.handleNavigationClick_);
+        }
+        var isFixed = this.root_.classList.contains(__WEBPACK_IMPORTED_MODULE_3__constants__["a" /* cssClasses */].FIXED_CLASS);
+        var isShort = this.root_.classList.contains(__WEBPACK_IMPORTED_MODULE_3__constants__["a" /* cssClasses */].SHORT_CLASS);
+        if (!isShort && !isFixed) {
+            window.addEventListener('resize', this.handleWindowResize_);
+        }
+    };
+    MDCTopAppBar.prototype.destroy = function () {
+        this.iconRipples_.forEach(function (iconRipple) { return iconRipple.destroy(); });
+        this.scrollTarget_.removeEventListener('scroll', this.handleTargetScroll_);
+        if (this.navIcon_) {
+            this.navIcon_.removeEventListener('click', this.handleNavigationClick_);
+        }
+        var isFixed = this.root_.classList.contains(__WEBPACK_IMPORTED_MODULE_3__constants__["a" /* cssClasses */].FIXED_CLASS);
+        var isShort = this.root_.classList.contains(__WEBPACK_IMPORTED_MODULE_3__constants__["a" /* cssClasses */].SHORT_CLASS);
+        if (!isShort && !isFixed) {
+            window.removeEventListener('resize', this.handleWindowResize_);
+        }
+        _super.prototype.destroy.call(this);
+    };
+    MDCTopAppBar.prototype.setScrollTarget = function (target) {
+        // Remove scroll handler from the previous scroll target
+        this.scrollTarget_.removeEventListener('scroll', this.handleTargetScroll_);
+        this.scrollTarget_ = target;
+        // Initialize scroll handler on the new scroll target
+        this.handleTargetScroll_ =
+            this.foundation_.handleTargetScroll.bind(this.foundation_);
+        this.scrollTarget_.addEventListener('scroll', this.handleTargetScroll_);
+    };
+    MDCTopAppBar.prototype.getDefaultFoundation = function () {
+        var _this = this;
+        // DO NOT INLINE this variable. For backward compatibility, foundations take a Partial<MDCFooAdapter>.
+        // To ensure we don't accidentally omit any methods, we need a separate, strongly typed adapter variable.
+        // tslint:disable:object-literal-sort-keys Methods should be in the same order as the adapter interface.
+        var adapter = {
+            hasClass: function (className) { return _this.root_.classList.contains(className); },
+            addClass: function (className) { return _this.root_.classList.add(className); },
+            removeClass: function (className) { return _this.root_.classList.remove(className); },
+            setStyle: function (property, value) { return _this.root_.style.setProperty(property, value); },
+            getTopAppBarHeight: function () { return _this.root_.clientHeight; },
+            notifyNavigationIconClicked: function () { return _this.emit(__WEBPACK_IMPORTED_MODULE_3__constants__["c" /* strings */].NAVIGATION_EVENT, {}); },
+            getViewportScrollY: function () {
+                var win = _this.scrollTarget_;
+                var el = _this.scrollTarget_;
+                return win.pageYOffset !== undefined ? win.pageYOffset : el.scrollTop;
+            },
+            getTotalActionItems: function () { return _this.root_.querySelectorAll(__WEBPACK_IMPORTED_MODULE_3__constants__["c" /* strings */].ACTION_ITEM_SELECTOR).length; },
+        };
+        // tslint:enable:object-literal-sort-keys
+        var foundation;
+        if (this.root_.classList.contains(__WEBPACK_IMPORTED_MODULE_3__constants__["a" /* cssClasses */].SHORT_CLASS)) {
+            foundation = new __WEBPACK_IMPORTED_MODULE_5__short_foundation__["a" /* MDCShortTopAppBarFoundation */](adapter);
+        }
+        else if (this.root_.classList.contains(__WEBPACK_IMPORTED_MODULE_3__constants__["a" /* cssClasses */].FIXED_CLASS)) {
+            foundation = new __WEBPACK_IMPORTED_MODULE_4__fixed_foundation__["a" /* MDCFixedTopAppBarFoundation */](adapter);
+        }
+        else {
+            foundation = new __WEBPACK_IMPORTED_MODULE_6__standard_foundation__["a" /* MDCTopAppBarFoundation */](adapter);
+        }
+        return foundation;
+    };
+    return MDCTopAppBar;
+}(__WEBPACK_IMPORTED_MODULE_1__material_base_component__["a" /* MDCComponent */]));
+
+//# sourceMappingURL=component.js.map
+
+/***/ }),
+/* 35 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__component__ = __webpack_require__(34);
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "MDCTopAppBar", function() { return __WEBPACK_IMPORTED_MODULE_0__component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__constants__ = __webpack_require__(1);
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "cssClasses", function() { return __WEBPACK_IMPORTED_MODULE_1__constants__["a"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "numbers", function() { return __WEBPACK_IMPORTED_MODULE_1__constants__["b"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "strings", function() { return __WEBPACK_IMPORTED_MODULE_1__constants__["c"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__foundation__ = __webpack_require__(9);
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "MDCTopAppBarBaseFoundation", function() { return __WEBPACK_IMPORTED_MODULE_2__foundation__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__fixed_foundation__ = __webpack_require__(20);
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "MDCFixedTopAppBarFoundation", function() { return __WEBPACK_IMPORTED_MODULE_3__fixed_foundation__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__short_foundation__ = __webpack_require__(21);
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "MDCShortTopAppBarFoundation", function() { return __WEBPACK_IMPORTED_MODULE_4__short_foundation__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__standard_foundation__ = __webpack_require__(10);
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "MDCTopAppBarFoundation", function() { return __WEBPACK_IMPORTED_MODULE_5__standard_foundation__["a"]; });
+/**
+ * @license
+ * Copyright 2019 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+
+
+
+
+
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Drawer = exports.Login = exports.InputButton = exports.HelloMan = exports.InputBox = undefined;
+
+var _HelloMan = __webpack_require__(25);
+
+var _HelloMan2 = _interopRequireDefault(_HelloMan);
+
+var _InputButton = __webpack_require__(27);
+
+var _InputButton2 = _interopRequireDefault(_InputButton);
+
+var _InputBox = __webpack_require__(26);
+
+var _InputBox2 = _interopRequireDefault(_InputBox);
+
+var _login = __webpack_require__(28);
+
+var _login2 = _interopRequireDefault(_login);
+
+var _Drawer = __webpack_require__(24);
+
+var _Drawer2 = _interopRequireDefault(_Drawer);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.InputBox = _InputBox2.default;
+exports.HelloMan = _HelloMan2.default;
+exports.InputButton = _InputButton2.default;
+exports.Login = _login2.default;
+exports.Drawer = _Drawer2.default;
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(11)(false);
+// Module
+exports.push([module.i, ".width-100{width:100%}.height-100{height:100%}.align-right{text-align:right}\n", ""]);
+
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(11)(false);
+// Imports
+exports.i(__webpack_require__(39), "");
+// Module
+exports.push([module.i, "/* @import \"../node_modules/@material/list/mdc-list.scss\"; */\n\n\n\n\n.login-div-main {\n    align-content: center;\n    width: 500px;\n    text-align: center;\n    background-color: #1fa8b5;\n  }\n  \n  .login-div-content-label {\n    float: left;\n    align-content: center;\n    width: 200px;\n    height: 220px;\n    font-size: 25px;\n    text-align: right;\n    /* background-color: #c4b0ab; */\n    /* padding-bottom: 50px;\n    padding-top: 10px; */\n  }\n  \n  .login-div-content-inputfield {\n    float: right;\n    align-content: center;\n    width: 300px;\n    height: 220px;\n    text-align: left;\n    /* background-color: #604f3d */\n    /* padding-bottom: 50px;\n    padding-top: 10px; */\n  }\n  \n  .login-div-heading {\n    vertical-align: middle;\n    line-height: 80px; \n    width: 500px;\n    height: 80px;\n    text-align: center;\n    /* background-color: #63b51f; */\n  }\n  \n  .login-div-content {\n    align-content: center;\n    width: 500px;\n    height: 220px;\n    text-align: center;\n    /* background-color: #b56f1f; */\n  }\n  \n  .login-div-content-label-span{\n    padding-top: 35px;\n    padding-bottom: 30px;\n    padding-right: 10px;\n    padding-left: 20px;\n    vertical-align: middle;\n    line-height: 60px; \n  }\n  .login-div-content-input-span{\n    padding-top: 40px;\n    padding-bottom: 30px;\n    padding-right: 10px;\n    vertical-align: middle;\n    line-height: 60px; \n  }\n  ", ""]);
+
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(11)(false);
+// Module
+exports.push([module.i, "//color\n\n\n.width-100 {\n    width: 100%;\n  }\n  \n  .height-100 {\n    height: 100%;\n  }\n  \n  .align-right {\n    text-align: right;\n  }", ""]);
+
+
+/***/ }),
 /* 40 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var content = __webpack_require__(37);
+
+if (typeof content === 'string') {
+  content = [[module.i, content, '']];
+}
+
+var options = {}
+
+options.insert = "head";
+options.singleton = false;
+
+var update = __webpack_require__(23)(content, options);
+
+if (content.locals) {
+  module.exports = content.locals;
+}
+
+
+/***/ }),
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var content = __webpack_require__(38);
+
+if (typeof content === 'string') {
+  content = [[module.i, content, '']];
+}
+
+var options = {}
+
+options.insert = "head";
+options.singleton = false;
+
+var update = __webpack_require__(23)(content, options);
+
+if (content.locals) {
+  module.exports = content.locals;
+}
+
+
+/***/ }),
+/* 42 */
 /***/ (function(module, exports) {
 
 var candidateSelectors = [
@@ -4939,7 +4972,7 @@ module.exports = tabbable;
 
 
 /***/ }),
-/* 41 */
+/* 43 */
 /***/ (function(module, exports) {
 
 module.exports = extend

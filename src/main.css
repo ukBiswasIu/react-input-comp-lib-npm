@@ -1,5 +1,9 @@
+@import "./styler.scss";
 
-@import "./color.scss";
+/* @import "../node_modules/@material/list/mdc-list.scss"; */
+
+
+
 
 .login-div-main {
     align-content: center;
