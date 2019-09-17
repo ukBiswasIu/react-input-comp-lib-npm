@@ -1,7 +1,7 @@
 {
   "name": "react-input-comp-lib-npm",
   "version": "0.0.28",
-  "description": "Put a description here",
+  "description": "A Testing Library",
   "main": "build/index.js",
   "peerDependencies": {
     "react": "^15.5.4"
@@ -28,7 +28,7 @@
     "test package",
     "react-input-comp-lib-npm"
   ],
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ukBiswasIu/react-input-comp-lib-npm/issues"
   },
