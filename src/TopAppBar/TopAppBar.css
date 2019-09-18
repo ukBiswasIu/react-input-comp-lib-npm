@@ -1,0 +1,19 @@
+.top-app-bar-style {
+    width: 100%;
+    background-color: #b0b0b0;
+  }
+  
+  .top-app-bar-icon-style {
+    padding-left: 20px;
+    float: left;
+    width: 100px;
+    height: 80px;
+  }
+  
+  .top-app-bar-title-style {
+    vertical-align: middle;
+    line-height: 80px;
+    font-size: 25px;
+    color: white;
+  }
+  

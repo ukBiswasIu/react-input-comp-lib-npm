@@ -7,6 +7,7 @@
     "react": "^15.5.4"
   },
   "dependencies": {
+    "file-loader": "^4.2.0",
     "material-components-web": "^3.2.0",
     "react": "^15.5.4",
     "scss-loader": "0.0.1"
