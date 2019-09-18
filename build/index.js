@@ -3705,7 +3705,7 @@ var HelloMan = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         "div",
-        { className: "align-right" },
+        { className: this.props.ClassName || "align-right" },
         "Hello ",
         this.props.name
       );
