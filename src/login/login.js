@@ -4,9 +4,9 @@ import "../main.css"
 class Login extends React.Component {
   render() {
     return (
-        <div className="login-div-main">
-        <div className="login-div-heading">
-        {this.props.heading || "Log In"}
+        <div className={this.props.mainDiv || "login-div-main"}>
+        <div className={this.props.headingStyle || "login-div-heading"}>
+        {this.props.headingText || "Log In"}
         </div>
 
         <div className="login-div-content">

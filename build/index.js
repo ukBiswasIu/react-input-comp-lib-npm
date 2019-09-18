@@ -4066,11 +4066,11 @@ var Login = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         "div",
-        { className: "login-div-main" },
+        { className: this.props.mainDiv || "login-div-main" },
         _react2.default.createElement(
           "div",
-          { className: "login-div-heading" },
-          this.props.heading || "Log In"
+          { className: this.props.headingStyle || "login-div-heading" },
+          this.props.headingText || "Log In"
         ),
         _react2.default.createElement(
           "div",
@@ -4756,7 +4756,7 @@ exports = module.exports = __webpack_require__(11)(false);
 // Imports
 exports.i(__webpack_require__(39), "");
 // Module
-exports.push([module.i, "/* @import \"../node_modules/@material/list/mdc-list.scss\"; */\n\n\n\n\n.login-div-main {\n    align-content: center;\n    width: 500px;\n    text-align: center;\n    background-color: #1fa8b5;\n  }\n  \n  .login-div-content-label {\n    float: left;\n    align-content: center;\n    width: 200px;\n    height: 220px;\n    font-size: 25px;\n    text-align: right;\n    /* background-color: #c4b0ab; */\n    /* padding-bottom: 50px;\n    padding-top: 10px; */\n  }\n  \n  .login-div-content-inputfield {\n    float: right;\n    align-content: center;\n    width: 300px;\n    height: 220px;\n    text-align: left;\n    /* background-color: #604f3d */\n    /* padding-bottom: 50px;\n    padding-top: 10px; */\n  }\n  \n  .login-div-heading {\n    vertical-align: middle;\n    line-height: 80px; \n    width: 500px;\n    height: 80px;\n    text-align: center;\n    /* background-color: #63b51f; */\n  }\n  \n  .login-div-content {\n    align-content: center;\n    width: 500px;\n    height: 220px;\n    text-align: center;\n    /* background-color: #b56f1f; */\n  }\n  \n  .login-div-content-label-span{\n    padding-top: 35px;\n    padding-bottom: 30px;\n    padding-right: 10px;\n    padding-left: 20px;\n    vertical-align: middle;\n    line-height: 60px; \n  }\n  .login-div-content-input-span{\n    padding-top: 40px;\n    padding-bottom: 30px;\n    padding-right: 10px;\n    vertical-align: middle;\n    line-height: 60px; \n  }\n  ", ""]);
+exports.push([module.i, "/* @import \"../node_modules/@material/list/mdc-list.scss\"; */\n\n\n\n\n.login-div-main {\n    align-content: center;\n    width: 500px;\n    text-align: center;\n    background-color: #1fa8b5;\n  }\n  \n  .login-div-content-label {\n    float: left;\n    align-content: center;\n    width: 200px;\n    height: 220px;\n    font-size: 25px;\n    text-align: right;\n    /* background-color: #c4b0ab; */\n    /* padding-bottom: 50px;\n    padding-top: 10px; */\n  }\n  \n  .login-div-content-inputfield {\n    float: right;\n    align-content: center;\n    width: 300px;\n    height: 220px;\n    text-align: left;\n    /* background-color: #604f3d */\n    /* padding-bottom: 50px;\n    padding-top: 10px; */\n  }\n  \n  .login-div-heading {\n    vertical-align: middle;\n    line-height: 80px; \n    font-size: 40px;\n    width: 500px;\n    height: 80px;\n    text-align: center;\n    /* background-color: #63b51f; */\n  }\n  \n  .login-div-content {\n    align-content: center;\n    width: 500px;\n    height: 220px;\n    text-align: center;\n    /* background-color: #b56f1f; */\n  }\n  \n  .login-div-content-label-span{\n    padding-top: 35px;\n    padding-bottom: 30px;\n    padding-right: 10px;\n    padding-left: 20px;\n    vertical-align: middle;\n    line-height: 60px; \n  }\n  .login-div-content-input-span{\n    padding-top: 40px;\n    padding-bottom: 30px;\n    padding-right: 10px;\n    vertical-align: middle;\n    line-height: 60px; \n  }\n  ", ""]);
 
 
 /***/ }),
