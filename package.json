@@ -1,6 +1,6 @@
 {
   "name": "react-input-comp-lib-npm",
-  "version": "0.0.28",
+  "version": "0.0.29",
   "description": "A Testing Library",
   "main": "build/index.js",
   "peerDependencies": {
