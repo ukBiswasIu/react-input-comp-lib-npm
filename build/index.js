@@ -4824,7 +4824,7 @@ exports.push([module.i, ".width-100{width:100%}.height-100{height:100%}.align-ri
 
 exports = module.exports = __webpack_require__(5)(false);
 // Module
-exports.push([module.i, ".top-app-bar-style {\n    width: 100%;\n    background-color: #b0b0b0;\n  }\n  \n  .top-app-bar-icon-style {\n    padding-left: 20px;\n    float: left;\n    width: 100px;\n    height: 80px;\n  }\n  \n  .top-app-bar-title-style {\n    vertical-align: middle;\n    line-height: 80px;\n    font-size: 25px;\n    color: white;\n  }\n  ", ""]);
+exports.push([module.i, ".top-app-bar-style {\n    width: 100%;\n    background-color: #b0b0b0;\n  }\n  \n  .top-app-bar-icon-style {\n    padding-left: 20px;\n    float: left;\n    width: 100px;\n    height: 80px;\n  }\n  \n  .top-app-bar-title-style {\n    padding-left: 40px;\n    vertical-align: middle;\n    line-height: 80px;\n    font-size: 25px;\n    color: white;\n  }\n  ", ""]);
 
 
 /***/ }),
